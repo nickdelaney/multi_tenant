@@ -1,0 +1,6 @@
+%h1= @bus.name
+%p= @bus.description
+
+= link_to "Edit", edit_bus_path(@bus)
+= link_to "Destroy", bus_path(@bus), method: :delete, data: { confirm: "Are you sure?"}
+= link_to "Home", root_path
