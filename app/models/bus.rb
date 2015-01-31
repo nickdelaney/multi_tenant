@@ -1,3 +1,4 @@
 class Bus < ActiveRecord::Base
-	belongs_to :franchises
+	belongs_to :franchise
+	validates_presence_of :franchise
 end

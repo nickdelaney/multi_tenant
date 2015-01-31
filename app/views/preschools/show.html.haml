@@ -1,0 +1,28 @@
+%h1= @preschool.name
+%div.info
+	%h3= @preschool.description
+	%div.info 
+		%b Address 1: 
+		%span= @preschool.address_1
+	%div.info 
+		%b Address 2: 
+		%span= @preschool.address_2
+	%div.info 
+		%b City: 
+		%span= @preschool.city
+	%div.info 
+		%b State: 
+		%span= @preschool.state
+	%div.info
+		%b Phone Number:
+		%span= @preschool.phone
+	%div.info
+		%b Director
+		%span= @preschool.director
+	%div.info
+		%b Franchise
+		%span= @franchise.name
+
+= link_to "Edit", edit_preschool_path(@preschool)
+= link_to "Destroy", preschool_path(@preschool), method: :delete, data: { confirm: "Are you sure?"}
+= link_to "Home", root_path

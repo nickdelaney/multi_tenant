@@ -6,11 +6,14 @@ class BusesController < ApplicationController
 	end
 
 	def new
+		@franchises = Franchise.all
 		@bus = Bus.new
 	end
 
 	def create
+		@franchises = Franchise.all
 		@bus = Bus.new(bus_params)
+		@bus.franchise = Franchise.find(params[:bus][:franchise])
 		if @bus.save
 			redirect_to @bus
 		else
@@ -19,6 +22,7 @@ class BusesController < ApplicationController
 	end
 
 	def update
+		@bus.franchise = Franchise.find(params[:bus][:franchise])
 		if @bus.update(bus_params)
 			redirect_to @bus
 		else
@@ -27,6 +31,7 @@ class BusesController < ApplicationController
 	end
 
 	def edit
+		@franchises = Franchise.all
 	end
 
 	def destroy
