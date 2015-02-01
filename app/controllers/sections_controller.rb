@@ -40,6 +40,10 @@ class SectionsController < ApplicationController
 	def destroy
 	end
 
+	def roster
+		@roster = Roster.where(sectiond_id: params[:id])
+	end
+
 	private
 
 	def find_section

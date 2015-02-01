@@ -41,6 +41,10 @@ class StudentsController < ApplicationController
 		end
 	end
 
+	def join_roster
+
+	end
+
 	def destroy
 	end
 

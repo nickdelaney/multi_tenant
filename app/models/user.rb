@@ -8,5 +8,9 @@ class User < ActiveRecord::Base
   has_many :students
   validates_presence_of :franchise
   # we tell User that we can take company attributes
+
+  def role?(r)
+        (role || '').include? r.to_s
+  end
  
 end
