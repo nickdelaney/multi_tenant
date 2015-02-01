@@ -26,3 +26,9 @@
 = link_to "Edit", edit_preschool_path(@preschool)
 = link_to "Destroy", preschool_path(@preschool), method: :delete, data: { confirm: "Are you sure?"}
 = link_to "Home", root_path
+
+%h2 Students
+
+-	@students.each do |student|
+	%h3= link_to student.first_name, student
+%h3= link_to 'Add Student', new_student_path

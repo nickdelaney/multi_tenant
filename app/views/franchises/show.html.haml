@@ -4,3 +4,15 @@
 = link_to "Edit", edit_franchise_path(@franchise)
 = link_to "Destroy", franchise_path(@franchise), method: :delete, data: { confirm: "Are you sure?"}
 = link_to "Home", root_path
+
+%h2 Buses
+%div.buses
+	-	@buses.each do |bus|
+		%h4= link_to bus.name, bus
+	%p= link_to 'Add a Bus', new_bus_path
+
+%h2 Preschools
+%div.preschools
+	-	@preschools.each do |preschool|
+		%h4= link_to preschool.name, preschool
+	%p= link_to 'Add a preschool', new_preschool_path

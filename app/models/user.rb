@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable
   # we set up our User relation ship
   belongs_to :franchise
+  has_many :students
   validates_presence_of :franchise
   # we tell User that we can take company attributes
  

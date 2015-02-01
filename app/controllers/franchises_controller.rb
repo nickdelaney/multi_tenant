@@ -1,8 +1,11 @@
 class FranchisesController < ApplicationController
 	before_action :find_franchise, only: [:show, :edit, :destroy, :update]
+	before_action :find_buses, only: [:show]
+	before_action :find_preschools, only: [:show]
 
 	def index
 		@franchises = Franchise.all
+
 	end
 
 	def show
@@ -42,6 +45,14 @@ class FranchisesController < ApplicationController
 
 	def find_franchise
 		@franchise = Franchise.find(params[:id])
+	end
+
+	def find_buses
+		@buses = Bus.where(franchise_id: params[:id])
+	end
+
+	def find_preschools
+		@preschools = Preschool.where(franchise_id: params[:id])
 	end
 
 	def franchise_params

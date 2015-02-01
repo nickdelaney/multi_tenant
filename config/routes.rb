@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :franchises
   resources :buses
   resources :preschools
+  resources :students
 
   
 end
