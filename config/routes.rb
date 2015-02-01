@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :buses
   resources :preschools
   resources :students
+  resources :sections
 
   
 end

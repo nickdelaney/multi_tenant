@@ -1,7 +1,7 @@
 class PreschoolsController < ApplicationController
 	before_action :find_preschool, only: [:show, :edit, :destroy, :update, :find_franchise]
-	before_action :find_franchise, only: [:show]
-	before_action :find_students, only: [:show]
+	before_action :get_relationships, only: [:show]
+
 
 	def index
 		@preschools = Preschool.all
@@ -52,13 +52,13 @@ class PreschoolsController < ApplicationController
 		@preschool= Preschool.find(params[:id])
 	end
 
-	def find_franchise
+	def get_relationships
 		@franchise = Franchise.find(@preschool.franchise_id)
+		@students = Student.where(preschool_id: params[:id])
+		@sections = Section.where(preschool_id: params[:id])
 	end
 
-	def find_students
-		@students = Student.where(preschool_id: params[:id])
-	end
+	
 
 	def preschool_params
 		params.require(:preschool).permit(:name, :description, :address_1, :address_2, :city, :state, :zip, :phone, :director)

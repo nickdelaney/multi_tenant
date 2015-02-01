@@ -32,3 +32,9 @@
 -	@students.each do |student|
 	%h3= link_to student.first_name, student
 %h3= link_to 'Add Student', new_student_path
+
+%h2 Sections
+
+-	@sections.each do |section|
+	%h3= link_to section.name, section
+%h3= link_to 'Add Section', new_section_path
