@@ -25,6 +25,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem "formtastic", github: "justinfrench/formtastic"
 gem 'sass-rails'
+gem 'cancan'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
