@@ -25,13 +25,25 @@ class PostsController < ApplicationController
 	def edit
 	end
 
+	def update
+		@post = current_user.posts.build(post_params)
+
+		if @post.update(post_params)
+			redirect_to @post
+		else
+			render 'edit'
+		end
+	end
+
 	def destroy
+		@post.destroy
+		redirect_to root_path
 	end
 
 	private
 
 	def find_post
-		@post = Post.where('id = ?, franchise_id = ?', params[:id], controller.current_franchise)
+		@post = Post.find_by(id: params[:id], franchise_id: current_franchise)
 	end
 
 	def all_posts
