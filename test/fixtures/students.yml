@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  birthdate: 2015-02-07
+  user_id: 
+  franchise_id: 
+  preschool_id: 
+
+two:
+  first_name: MyString
+  last_name: MyString
+  birthdate: 2015-02-07
+  user_id: 
+  franchise_id: 
+  preschool_id: 
