@@ -37,7 +37,7 @@ class Admin::PostsController < ApplicationController
 
 	def destroy
 		@post.destroy
-		redirect_to root_path
+		redirect_to admin_post_path
 	end
 
 	private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206133459) do
+ActiveRecord::Schema.define(version: 20150207184203) do
 
   create_table "franchises", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,23 @@ ActiveRecord::Schema.define(version: 20150206133459) do
 
   add_index "posts", ["franchise_id"], name: "index_posts_on_franchise_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "preschools", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "director"
+    t.integer  "franchise_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "preschools", ["franchise_id"], name: "index_preschools_on_franchise_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
