@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  class_size: 1
+  section_time: MyString
+  preschool_id: 
+  franchise_id: 
+
+two:
+  name: MyString
+  description: MyText
+  class_size: 1
+  section_time: MyString
+  preschool_id: 
+  franchise_id: 

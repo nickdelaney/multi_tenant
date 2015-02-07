@@ -1,0 +1,33 @@
+<%= render  '/layouts/header' %>
+<div class="container-fluid">
+<h1>Preschools</h1>
+<%= link_to '+ Add Preschool', new_admin_preschool_path, {:class => "btn btn-default right"} %>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>City</td>
+				<td>Phone</td>
+				<td>Director</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @preschools.each do |preschool| %>
+				<tr>
+					<td><%= preschool.name %></td>
+					<td><%= preschool.city %></td>
+					<td><%= preschool.phone %></td>
+					<td><%= preschool.director %></td>
+					<td>
+						<%= link_to 'Edit', edit_admin_preschool_path(preschool) %> |
+						<%= link_to 'Destroy', admin_preschool_path(preschool), method: :delete, data: { confirm: 'Are you sure?' } %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+</div>

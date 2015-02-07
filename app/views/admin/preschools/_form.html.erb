@@ -1,0 +1,50 @@
+<%= form_for @preschool, url: admin_preschools_path do |f| %>
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_field :name, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :description %>
+		<%= f.text_field :description, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :address_1 %>
+		<%= f.text_field :address_1, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :address_2 %>
+		<%= f.text_field :address_2, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :city %>
+		<%= f.text_field :city, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :state %>
+		<%= f.text_field :state, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :zip %>
+		<%= f.text_field :zip, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :phone %>
+		<%= f.text_field :phone, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :director %>
+		<%= f.text_field :director, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.submit 'Create Preschool', :class => 'btn btn-default' %>
+	</div>				
+<% end %>
