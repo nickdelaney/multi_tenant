@@ -1,4 +1,4 @@
-<%= form_for @preschool, url: admin_preschools_path do |f| %>
+<%= form_for [:admin , @preschool] do |f| %>
 	<div class="form-group">
 		<%= f.label :name %>
 		<%= f.text_field :name, {:class => 'form-control'} %>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   	resources :buses
   	resources :students
   	resources :franchises
-  	resources :preschools, path: "preschools"
+  	resources :preschools
   	resources :sections
   end
 end

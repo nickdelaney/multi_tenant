@@ -1,7 +1,10 @@
 <%= render  '/layouts/header' %>
 <div class="container-fluid">
-<h1>Preschools</h1>
-<%= link_to '+ Add Preschool', new_admin_preschool_path, {:class => "btn btn-default right"} %>
+	<div class="row">
+		<div class="col-md-8"><h1>Preschools</h1></div>
+		<div class="col-md-4">
+			<h2><%= link_to '+ Add Preschool', new_admin_preschool_path, {:class => "btn btn-default pull-right"} %></h2></div>
+	</div>
 <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
@@ -21,6 +24,7 @@
 					<td><%= preschool.phone %></td>
 					<td><%= preschool.director %></td>
 					<td>
+						<%= link_to 'View', admin_preschool_path(preschool) %> |
 						<%= link_to 'Edit', edit_admin_preschool_path(preschool) %> |
 						<%= link_to 'Destroy', admin_preschool_path(preschool), method: :delete, data: { confirm: 'Are you sure?' } %>
 					</td>

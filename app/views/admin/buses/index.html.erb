@@ -1,0 +1,35 @@
+<%= render  '/layouts/header' %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8"><h1>Buses</h1></div>
+		<div class="col-md-4">
+			<h2><%= link_to '+ Add Bus', new_admin_bus_path, {:class => "btn btn-default pull-right"} %></h2></div>
+	</div>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Description</td>
+				<td>Date Created</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @buses.each do |bus| %>
+				<tr>
+					<td><%= bus.name %></td>
+					<td><%= bus.description %></td>
+					<td><%=bus.created_at %></td>
+					<td>
+						<%= link_to 'View', admin_bus_path(bus) %> |
+						<%= link_to 'Edit', edit_admin_bus_path(bus) %> |
+						<%= link_to 'Destroy', admin_bus_path(bus), method: :delete, data: { confirm: 'Are you sure?' } %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+</div>

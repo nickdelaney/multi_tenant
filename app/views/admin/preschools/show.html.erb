@@ -1,0 +1,11 @@
+<%= render  '/layouts/header' %>
+<div class="container-fluid">
+<h1><%= @preschool.name %></h1>
+	<p class="lead">
+		<%= @preschool.description %>
+	</p>
+	<p>
+		<%= link_to 'Edit', edit_admin_preschool_path(@preschool) %> |
+		<%= link_to 'Destroy', admin_preschool_path(@preschool), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+</div>

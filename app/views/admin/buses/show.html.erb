@@ -1,0 +1,11 @@
+<%= render  '/layouts/header' %>
+<div class="container-fluid">
+<h1><%= @bus.name %></h1>
+	<p class="lead">
+		<%= @bus.description %>
+	</p>
+	<p>
+		<%= link_to 'Edit', edit_admin_bus_path(@bus) %> |
+		<%= link_to 'Destroy', admin_bus_path(@bus), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+</div>

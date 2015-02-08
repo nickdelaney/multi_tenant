@@ -15,7 +15,7 @@ class Admin::PreschoolsController < ApplicationController
 	def create
 		@preschool = Preschool.new(preschool_params)
 		if @preschool.save
-			redirect_to admin_preschools_path(@preschool)
+			redirect_to admin_preschool_path(@preschool)
 		else
 			render 'new'
 		end
@@ -25,9 +25,16 @@ class Admin::PreschoolsController < ApplicationController
 	end
 
 	def update
+		if @preschool.update(preschool_params)
+			redirect_to admin_preschools_path(@preschool)
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
+		@preschool.destroy
+		redirect_to admin_preschools_path
 	end
 
 	private
