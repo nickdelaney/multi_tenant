@@ -1,4 +1,4 @@
-== README
+# BEEBUS Admin
 
 This is a multi-tenant application for BeeBus
 
