@@ -1,0 +1,15 @@
+<%= render  '/layouts/header' %>
+<div class="container-fluid">
+<h1><%= @user.email %></h1>
+	<h2>Students</h2>
+	<% @students.each do |student| %>
+	<p class="lead">
+		<%= "#{student.first_name} #{student.last_name}" %>
+	</p>
+	<% end %>
+	<p>
+		<%= link_to 'Add Student', new_admin_user_student_path(@user, :id => @user.id) %> | 
+		<%= link_to 'Edit', edit_admin_user_path(@user) %> |
+		<%= link_to 'Destroy', admin_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+</div>

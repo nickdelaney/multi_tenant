@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   	resources :preschools
   	resources :sections
     resources :users do
+      resources :students
       collection do
        get 'faculty'
       end
