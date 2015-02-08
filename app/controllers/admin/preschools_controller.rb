@@ -1,8 +1,13 @@
 class Admin::PreschoolsController < ApplicationController
 	before_action :find_preschool, only:[:show, :edit, :destroy, :update]
-	before_action :all_preschools, only:[:index]
+	before_action :check_role
+	#before_action :all_preschools, only:[:index]
 
 	def index
+		@search  = Preschool.search(params[:q])
+		@preschools = @search.result
+		@preschools = @preschools.where(:franchise_id => current_franchise)
+		@search.build_condition
 	end
 
 	def show

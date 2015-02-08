@@ -13,12 +13,23 @@ class ApplicationController < ActionController::Base
   end
 
   def current_franchise
-  	current_user.franchise_id
+    if user_signed_in?
+  	   current_user.franchise_id
+     end
   end
 
   def franchise_name
-    @franchise = Franchise.find(current_franchise)
-    @franchise_name = @franchise.name
+      if user_signed_in?
+        @franchise = Franchise.find(current_franchise)
+        @franchise_name = @franchise.name
+      end
   end
+
+  def check_role
+      if current_user.role.name != 'admin'
+            redirect_to student_path
+      end
+  end
+
 
 end

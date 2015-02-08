@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.1'
 gem 'filterrific', '~> 2.0.3'
 gem 'jquery-datatables-rails', '~> 3.1.1'
+gem 'cancan', '~> 1.6.10'
+gem 'ransack', '~> 1.6.3'
+gem 'bootstrap-datepicker-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

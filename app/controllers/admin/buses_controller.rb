@@ -1,6 +1,7 @@
 class Admin::BusesController < ApplicationController
 	before_action :find_bus, only:[:show, :edit, :destroy, :update]
 	before_action :all_buses, only:[:index]
+	before_action :check_role
 
 	def index
 	end

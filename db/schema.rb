@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208130332) do
+ActiveRecord::Schema.define(version: 20150208211826) do
 
   create_table "buses", force: :cascade do |t|
     t.string   "name"
@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 20150208130332) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "franchise_id"
-    t.string   "role"
     t.integer  "role_id"
   end
 

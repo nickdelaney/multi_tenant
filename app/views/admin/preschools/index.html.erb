@@ -1,38 +1,69 @@
 <%= render  '/layouts/header' %>
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8"><h1>Preschools</h1></div>
-		<div class="col-md-4">
-			<h2><%= link_to '+ Add Preschool', new_admin_preschool_path, {:class => "btn btn-default pull-right"} %></h2></div>
+	<div class="page-header">
+		<div class="row">
+			<div class="col-md-10">
+				<h1>Preschools</h1>
+			</div>
+			<div class="col-md-1">
+				<%= link_to '+ Add Preschool', new_admin_preschool_path, {:class => "btn btn-default pull-right"} %>
+			</div>
+		</div>
+	
+
 	</div>
-<div class="table-responsive">
-	<table class="table table-striped datatable">
-		<thead>
-			<tr>
-				<td>Name</td>
-				<td>City</td>
-				<td>Phone</td>
-				<td>Director</td>
-				<td></td>
-			</tr>
-		</thead>
-		<tbody>
-			<% @preschools.each do |preschool| %>
-				<tr>
-					<td><%= preschool.name %></td>
-					<td><%= preschool.city %></td>
-					<td><%= preschool.phone %></td>
-					<td><%= preschool.director %></td>
-					<td>
-						<%= link_to 'View', admin_preschool_path(preschool) %> |
-						<%= link_to 'Edit', edit_admin_preschool_path(preschool) %> |
-						<%= link_to 'Destroy', admin_preschool_path(preschool), method: :delete, data: { confirm: 'Are you sure?' } %>
-					</td>
-				</tr>
+	<div class="row">
+		<div class="col-md-9">
+					<div class="table-responsive">
+						<table class="table table-striped table-hover table-bordered f">
+							<thead>
+								<tr>
+									<td><%= sort_link @search, :name, "Preschool Name" %></td>
+									<td><%= sort_link @search, :city, "City" %></td>
+									<td><%= sort_link @search, :phone, "Phone" %></td>
+									<td><%= sort_link @search, :director, "Director" %></td>
+									<td></td>
+								</tr>
+							</thead>
+							<tbody>
+								<% @preschools.each do |preschool| %>
+									<tr>
+										<td><%= preschool.name %></td>
+										<td><%= preschool.city %></td>
+										<td><%= preschool.phone %></td>
+										<td><%= preschool.director %></td>
+										<td>
+											<%= link_to 'View', admin_preschool_path(preschool) %> |
+											<%= link_to 'Edit', edit_admin_preschool_path(preschool) %> |
+											<%= link_to 'Destroy', admin_preschool_path(preschool), method: :delete, data: { confirm: 'Are you sure?' } %>
+										</td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+		<div class="col-md-3">
+			<%= search_form_for [:admin, @search] do |f| %>
+				<%= f.condition_fields do |c| %>
+					<div class="form-group">
+						<%= c.attribute_fields do |a| %>
+							<%= a.attribute_select nil, class: "form-control" %>
+						<% end %>
+						<%= c.predicate_select({only: [:cont,:start,:end,]}, class: "form-control")  %>
+							<%= c.value_fields do |v| %>
+							 <%= v.text_field :value, class: "form-control" %>
+						<% end %>
+					</div>
+				<% end %>
+				<div class="form-group">
+					<%= f.submit :class => 'btn btn-default'%>
+				</div>
 			<% end %>
-		</tbody>
-	</table>
-</div>
+		</div>
+	</div>	
+
 
 </div>
   

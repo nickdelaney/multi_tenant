@@ -1,6 +1,7 @@
 class Admin::SectionsController < ApplicationController
 	before_action :find_section, only:[:show, :edit, :destroy, :update]
 	before_action :all_sections, only:[:index]
+	before_action :check_role
 
 	def index
 	end

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
 
-  devise_for :users
-  root to: "posts#index"
+  root to: "admin/dashboard#index"
 
   namespace :admin do
   	get '', to: 'dashboard#index', as: '/'
@@ -12,5 +11,15 @@ Rails.application.routes.draw do
   	resources :franchises
   	resources :preschools
   	resources :sections
+    resources :users do
+      collection do
+       get 'faculty'
+      end
+    end
+
   end
+
+  
+
+  devise_for :users
 end
