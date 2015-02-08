@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207184652) do
+ActiveRecord::Schema.define(version: 20150208130332) do
 
   create_table "buses", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +58,12 @@ ActiveRecord::Schema.define(version: 20150207184652) do
 
   add_index "preschools", ["franchise_id"], name: "index_preschools_on_franchise_id"
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sections", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -102,10 +108,12 @@ ActiveRecord::Schema.define(version: 20150207184652) do
     t.datetime "updated_at"
     t.integer  "franchise_id"
     t.string   "role"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["franchise_id"], name: "index_users_on_franchise_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
 end
