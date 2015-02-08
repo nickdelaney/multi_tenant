@@ -1,10 +1,5 @@
 class Preschool < ActiveRecord::Base
   belongs_to :franchise
+  has_many :sections
 
-filterrific(
-  available_filters: [
-    :sorted_by,
-    :search_query
-  ]
-)
 end

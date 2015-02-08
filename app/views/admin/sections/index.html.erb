@@ -1,0 +1,37 @@
+<%= render  '/layouts/header' %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8"><h1>Sections</h1></div>
+		<div class="col-md-4">
+			<h2><%= link_to '+ Add Section', new_admin_section_path, {:class => "btn btn-default pull-right"} %></h2></div>
+	</div>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Class Size</td>
+				<td>Start Time</td>
+				<td>Preschool</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @sections.each do |section| %>
+				<tr>
+					<td><%= section.name %></td>
+					<td><%= section.class_size %></td>
+					<td><%= section.section_time %></td>
+					<td><%= section.preschool.name %></td>
+					<td>
+						<%= link_to 'View', admin_section_path(section) %> |
+						<%= link_to 'Edit', edit_admin_section_path(section) %> |
+						<%= link_to 'Destroy', admin_section_path(section), method: :delete, data: { confirm: 'Are you sure?' } %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+</div>

@@ -1,0 +1,11 @@
+<%= render  '/layouts/header' %>
+<div class="container-fluid">
+<h1><%= @section.name %></h1>
+	<p class="lead">
+		<%= @section.description %>
+	</p>
+	<p>
+		<%= link_to 'Edit', edit_admin_section_path(@section) %> |
+		<%= link_to 'Destroy', admin_section_path(@section), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+</div>
