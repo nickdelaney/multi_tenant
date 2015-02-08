@@ -7,12 +7,25 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 <%= yield %>
+<script type="text/javascript">
+  $('.datatable').DataTable({
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
 
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+  </script>
 </body>
 </html>
