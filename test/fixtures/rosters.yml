@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section_id: 
+  franchise_id: 
+  student_id: 
+
+two:
+  section_id: 
+  franchise_id: 
+  student_id: 

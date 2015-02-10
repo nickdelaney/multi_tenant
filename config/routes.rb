@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   	resources :franchises
   	resources :preschools
   	resources :sections
+    resources :rosters
     resources :users do
       resources :students
       collection do

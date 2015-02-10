@@ -24,7 +24,7 @@
 					<td><%= section.section_time %></td>
 					<td><%= section.preschool.name %></td>
 					<td>
-						<%= link_to 'View', admin_section_path(section) %> |
+						<%= link_to 'View', admin_roster_path(section) %> |
 						<%= link_to 'Edit', edit_admin_section_path(section) %> |
 						<%= link_to 'Destroy', admin_section_path(section), method: :delete, data: { confirm: 'Are you sure?' } %>
 					</td>
