@@ -22,16 +22,13 @@ class Admin::RostersController < ApplicationController
 	end
 
 
+
+
 	private
 
 	def find_roster
 		@rosters = Roster.where(section_id: params[:id], franchise_id: current_franchise)
 	end
-
-	def all_rosters
-		@rosters = Roster.where(franchise_id: current_franchise)
-	end
-
 
 
 end

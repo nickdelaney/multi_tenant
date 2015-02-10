@@ -38,6 +38,8 @@ class Admin::SectionsController < ApplicationController
 		redirect_to admin_sections_path
 	end
 
+
+
 	private
 
 	def find_section

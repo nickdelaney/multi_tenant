@@ -1,9 +1,9 @@
 <%= render  '/layouts/header' %>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-8"><h1>Sections</h1></div>
+		<div class="col-md-8"><h1>Choose Section</h1></div>
 		<div class="col-md-4">
-			<h2><%= link_to '+ Add Section', new_admin_section_path, {:class => "btn btn-default pull-right"} %></h2></div>
+			</div>
 	</div>
 <div class="table-responsive">
 	<table class="table table-striped datatable">
@@ -26,14 +26,13 @@
 					<td><%= section.preschool.name %></td>
 					<td><%= section.rosters.count %></td>
 					<td>
-						<%= link_to 'View Roster', admin_roster_path(section) %> |
-						<%= link_to 'Edit', edit_admin_section_path(section) %> |
-						<%= link_to 'Destroy', admin_section_path(section), method: :delete, data: { confirm: 'Are you sure?' } %>
+						<%= button_to 'Enroll', { action: "enroll", student_id: @student.id, section_id: section.id },
+                                method: :post, data: { confirm: "Are you sure?" }  %>
 					</td>
 				</tr>
 			<% end %>
 		</tbody>
 	</table>
 </div>
-
+<%= @student.id %>
 </div>

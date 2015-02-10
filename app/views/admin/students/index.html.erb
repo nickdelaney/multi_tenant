@@ -1,0 +1,44 @@
+<%= render  '/layouts/header' %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8"><h1>Students</h1></div>
+		<div class="col-md-4">
+			<h2><%= link_to '+ Add Student', new_admin_student_path, {:class => "btn btn-default pull-right"} %></h2></div>
+	</div>
+<div class="table-responsive">
+	<table class="table table-striped datatable">
+		<thead>
+			<tr>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>Birthdate</td>
+				<td>User</td>
+				<td>Section</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @students.each do |student| %>
+				<tr>
+					<td><%= student.first_name %></td>
+					<td><%= student.last_name %></td>
+					<td><%= student.birthdate %></td>
+					<td><%= student.user.try(:email) %></td>
+					<td>
+						<% @rosters =  student.rosters %>
+						<% @rosters.each do |roster| %>
+							<%= roster.section.try(:name) %>
+						<% end %>
+					</td>
+					<td>
+						<%= link_to 'View Student', admin_student_path(student) %> |
+						<%= link_to 'Edit', edit_admin_student_path(student) %> |
+						<%= link_to 'Destroy', admin_student_path(student), method: :delete, data: { confirm: 'Are you sure?' } %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+</div>
