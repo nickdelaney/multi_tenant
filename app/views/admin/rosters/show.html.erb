@@ -17,8 +17,8 @@
 		<tbody>
 			<% @rosters.each do |roster| %>
 				<tr>
-					<td><%= "#{roster.student.first_name} #{roster.student.last_name}" %></td>
-					<td><%= roster.student.birthdate %></td>
+					<td><%= "#{roster.student.try(:first_name)} #{roster.student.try(:last_name)}" %></td>
+					<td><%= roster.student.try(:birthdate) %></td>
 
 					<td>
 						<%= link_to 'View', admin_roster_path(roster) %> |

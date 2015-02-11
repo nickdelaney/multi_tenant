@@ -15,11 +15,12 @@
           <%= link_to "BEEBUS", admin_path, :class => 'navbar-brand' %> 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+          <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                   <%= link_to ("Users <span class='caret'></span>").html_safe, nil , :class => 'dropdown-toggle', :'data-toggle' => 'dropdown', :'aria-expanded' => 'false', :'role' => 'button'%>
                   <ul class="dropdown-menu" role="menu">
-                    <li><%= link_to "Users", admin_users_path %></li>
+                    <li><%= link_to "Members", admin_users_path %></li>
                     <li><%= link_to "Faculty", faculty_admin_users_path %></li>
                   </ul>
             </li>
@@ -47,6 +48,7 @@
               </ul>
             </li>
           </ul>
+          <% end %>
 
         </div>
       </div>

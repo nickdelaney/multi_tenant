@@ -1,12 +1,43 @@
 <%= render  '/layouts/header' %>
 <div class="container-fluid">
 <h1><%= "#{@student.first_name} #{@student.last_name}" %></h1>
-	<p class="lead">
-		
-	</p>
+	
 	<p>
 		<%= link_to 'Enroll', admin_student_section_student_path(:student_id => @student.id)  %> |
 		<%= link_to 'Edit', edit_admin_student_path(@student) %> |
 		<%= link_to 'Destroy', admin_student_path(@student), method: :delete, data: { confirm: 'Are you sure?' } %>
 	</p>
+	<div class="row">
+		<div class="col-md-5">
+				<h2>Enrolled in</h2>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<td>Name</td>
+							<td>Class Size</td>
+							<td>Start Time</td>
+							<td>Preschool</td>
+							<td>Class Count</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<% @rosters.each do |roster| %>
+							<tr>
+								<td><%= roster.section.name %></td>
+								<td><%= roster.section.class_size %></td>
+								<td><%= roster.section.section_time %></td>
+								<td><%= roster.section.preschool.name %></td>
+								<td><%= roster.section.rosters.count %></td>
+								<td>
+									
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>

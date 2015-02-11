@@ -7,6 +7,10 @@ class Admin::UsersController < ApplicationController
 		@employees = User.where(franchise_id: current_franchise, role: 1)
 	end
 
+
+	def create
+	end
+
 	def show
 		@user = User.find_by(id: params[:id], franchise_id: current_franchise)
 		@students = Student.where(franchise_id: current_franchise, user_id: params[:id])
@@ -26,8 +30,8 @@ class Admin::UsersController < ApplicationController
 		@students = student.where(franchise_id: current_franchise)
 	end
 
-	def student_params
-		params.require(:student).permit(:first_name,:last_name).merge(franchise_id: current_franchise).merge(user_id: params[:id])
+	def user_params
+		params.require(:student).permit(:email,).merge(franchise_id: current_franchise)
 	end
 
 end

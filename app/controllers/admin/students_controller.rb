@@ -20,6 +20,10 @@ class Admin::StudentsController < ApplicationController
 		end
 	end
 
+	def show
+		@rosters = @student.rosters
+	end
+
 	def destroy
 		@student.destroy
 		redirect_to admin_users_path
@@ -32,7 +36,7 @@ class Admin::StudentsController < ApplicationController
 
 	def enroll
 		 @student = Student.find(params[:student_id])
-		 if @student.rosters.create(student_id: params[:student_id], section_id: params[:section_id])
+		 if @student.rosters.create(section_id: params[:section_id], franchise_id: current_franchise)
 		 	redirect_to admin_student_path(@student)
 		 else
 		 	render 'section'

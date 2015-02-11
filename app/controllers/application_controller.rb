@@ -27,13 +27,21 @@ class ApplicationController < ActionController::Base
   end
 
   def check_role
+    if user_signed_in?
       if current_user.role.name != 'admin'
-            redirect_to student_path
+            redirect_to new_user_session_path
+      else
+
       end
+    else
+      redirect_to new_user_session_path
+    end
+
   end
 
  def roster_count
     Roster.count(section_id: params[:id], franchise_id: current_franchise)
   end
+
 
 end

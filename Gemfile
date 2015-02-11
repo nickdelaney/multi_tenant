@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'haml'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -28,6 +29,7 @@ gem 'jquery-datatables-rails', '~> 3.1.1'
 gem 'cancan', '~> 1.6.10'
 gem 'ransack', '~> 1.6.3'
 gem 'bootstrap-datepicker-rails'
+gem 'activemerchant', :require => 'active_merchant'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

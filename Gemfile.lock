@@ -23,6 +23,11 @@ GEM
     activejob (4.2.0)
       activesupport (= 4.2.0)
       globalid (>= 0.3.0)
+    activemerchant (1.46.0)
+      activesupport (>= 3.2.14, < 5.0.0)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (4.2.0)
       activesupport (= 4.2.0)
       builder (~> 3.1)
@@ -71,6 +76,8 @@ GEM
       rails (>= 3.1.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    haml (4.0.6)
+      tilt
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -181,12 +188,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemerchant
   bootstrap-datepicker-rails
   byebug
   cancan (~> 1.6.10)
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
   filterrific (~> 2.0.3)
+  haml
   jbuilder (~> 2.0)
   jquery-datatables-rails (~> 3.1.1)
   jquery-rails

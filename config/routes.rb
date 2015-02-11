@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   	resources :preschools
   	resources :sections
     resources :rosters
+    devise_scope :user do
+      match '/registrations/create', to: 'registrations#create', via: :post
+      match '/registrations/new', to: 'registrations#new', via: :get
+    end
+
     resources :users do
       resources :students
       collection do
@@ -23,8 +28,10 @@ Rails.application.routes.draw do
     end
 
   end
-
+  
+  resources :payments
+  devise_for :users
   
 
-  devise_for :users
+  
 end
