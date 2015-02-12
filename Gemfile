@@ -30,6 +30,9 @@ gem 'cancan', '~> 1.6.10'
 gem 'ransack', '~> 1.6.3'
 gem 'bootstrap-datepicker-rails'
 gem 'activemerchant', :require => 'active_merchant'
+gem "mailboxer"
+gem 'will_paginate'
+gem 'chosen-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

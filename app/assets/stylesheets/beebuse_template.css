@@ -1,0 +1,81 @@
+@font-face {
+	font-family: CallMe;
+	src: url('fonts/Call-Me-Maybe.ttf.woff');
+}
+
+@import url(http://weloveiconfonts.com/api/?family=iconicstroke);
+@import url(http://weloveiconfonts.com/api/?family=maki);
+@import url(http://weloveiconfonts.com/api/?family=typicons);
+[class*="maki-"]:before {
+  font-family: 'maki', sans-serif;
+}
+[class*="iconicstroke-"]:before {
+  font-family: 'IconicStroke', sans-serif;
+}
+[class*="typicons-"]:before {
+  font-family: 'Typicons', sans-serif;
+}
+
+body{font-family:Arimo !important;font-size:13px !important;line-height:1.4 !important;background:#f9f9f9 !important;}
+.page-container{display:table;width:100%;height:100%;,vertical-align:top;border-collapse:collapse;border-spacing:0;table-layout:fixed;}
+.page-container .main-content{display:table-cell;position:relative;z-index:1; padding:30px;padding-bottom:0;vertical-align:top;word-break:break-word;width:100%;}
+.page-container .main-content .page-title{background:#26d9e8;margin:-30px;margin-bottom:30px;padding:20px 0;overflow:auto;border-bottom:2px solid #ccc;}
+.page-container .main-content .page-title .title-cont{float:left;padding-left:30px;color:#fff;}
+.page-container .main-content .page-title .title-cont .description{color:#486469;}
+
+.form-control{border:1px solid #e4e4e4;border-radius:0px;}
+.form-row{overflow:auto;}
+.form-group-seperator{height: 1px;background: #eee;margin-bottom: 15px;}
+
+.page-title .breadcrumb-cont{float: right;padding-right: 30px;}
+.page-title .breadcrumb{margin-bottom:0;margin-top:8px;padding:8px 15px;list-style:none;background:none;}
+.page-title .breadcrumb>li>a{color:#fff;}
+.title-cont h1{font-size:28px;margin:0;}
+
+.breadcrumb>li+li:before{color:#1f3b42;}
+
+.panel{position:relative;background:#fff;padding:20px 30px;}
+.panel .panel-heading{position:relative;padding:0;margin:0;font-size:16px;padding-bottom:35px !important;border-bottom:2px solid #f5f5f5;background:none}
+.panel .panel-heading .panel-title{float:left;background:none;}
+
+.navbar{background:#ffe210;min-height:0;margin:-30px;margin-bottom:30px;min-height:65px;}
+.user-info-menu>li{position:relative;margin:0;padding:0;border-top:0;border-bottom:0;display:block;float:left;}
+.user-info-menu>li>a{position:relative;display:block;padding:30px 20px;color:#695b28;top:1px;z-index:5;text-decoration:none;}
+.user-info-menu>li>a>i{font-size:15px;}
+.user-info-menu .user-icon{width:40px;height:40px;background:#fff;border-radius:50%;}
+.user-info-menu .userpic-32{margin-top: -8px;top: 8px;}
+.user-info-menu .user-profile{max-height:76px;}
+.user-profile-menu{right:-1px;left:auto;width:250px;border-radius:0px;top:83px;}
+
+.sidebar{display:table-cell;position:relative;background:#253241;z-index:1;width:270px;height:100vh;min-height:100vh;}
+
+.collapsed{width:80px;overflow:scroll;}
+.collapsed .title{display:none;}
+.collapsed a:before{display:none !important;}
+.collapsed .logo-cont{display:none;}
+.collapsed a{padding:24px 0 !important;}
+.collapsed a>.ico{font-size:24px !important;}
+
+
+.table.table-bordered {border-color: #eee;}
+
+.sidebar .logo-cont{padding:10px 45px;font-family:'CallMe';max-height:90px;overflow:auto;height:88px;}
+.sidebar .logo-cont>.logo{color:#fff;font-size:28px;float:left;}
+.sidebar .logo-cont>.settings{float:right;margin-right:1px;color:#cffcff;font-size:24px;margin-top:10px;}
+.sidebar .logo-cont>p{display:inline-block;font-family:Arimo;color:#fff;}
+.sidebar .main-menu{padding-left:30px;padding-right:30px;margin-top:20px;margin-bottom:20px;list-style:none;}
+.sidebar .main-menu a{color:#b6dfeb;text-decoration:none;display:block;padding:18px 5px; border-bottom:1px solid #35475d;}
+.sidebar .main-menu a:before{position:relative;display:inline-block;font-family:FontAwesome;content: '\f107';float:right;margin-left:10px;
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+-o-transform: rotate(-90deg);
+-ms-transform: rotate(-90deg);
+transform: rotate(-90deg);
+-webkit-transition: all 150ms ease-in-out;
+-moz-transition: all 150ms ease-in-out;
+-o-transition: all 150ms ease-in-out;
+transition: all 150ms ease-in-out;}
+
+.sidebar .main-menu a>.ico{display: inline-block;margin-right: 10px;font-size:15px;}
+
+

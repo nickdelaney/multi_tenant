@@ -1,0 +1,6 @@
+<%= link_to 'Start conversation', new_admin_message_path, class: 'btn btn-lg btn-primary' %>
+<ul class="list-group">
+  <%= render partial: 'admin/conversations/conversation', collection: @conversations %>
+</ul>
+ 
+ <%= will_paginate %>

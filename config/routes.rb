@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   root to: "admin/dashboard#index"
 
   namespace :admin do
+    resources :conversations, only: [:index, :show, :destroy] do
+      member do
+        post :reply
+      end
+    end
+    resources :messages, only: [:new, :create]
+
   	get '', to: 'dashboard#index', as: '/'
   	resources :posts
   	resources :buses

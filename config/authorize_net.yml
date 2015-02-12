@@ -1,0 +1,10 @@
+development: &development
+    mode: test
+    login: 84BW232cYmB
+    key: 79A7RcCw7zf6Sk7w
+
+production:
+   <<: *development
+
+test:
+   <<: *development

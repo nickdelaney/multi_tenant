@@ -17,3 +17,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-datepicker
+//= require chosen-jquery
+//= require admin/messages
