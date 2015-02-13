@@ -1,3 +1,5 @@
+<%= page_header "New Message" %>
+<%= page_desc "fill out form below" %>
  <%= form_tag admin_messages_path, method: :post do %>
   <div class="form-group">
     <%= label_tag 'message[subject]', 'Subject' %>

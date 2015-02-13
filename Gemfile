@@ -33,6 +33,7 @@ gem 'activemerchant', :require => 'active_merchant'
 gem "mailboxer"
 gem 'will_paginate'
 gem 'chosen-rails'
+gem "breadcrumbs_on_rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

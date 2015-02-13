@@ -3,10 +3,15 @@ class Admin::BusesController < ApplicationController
 	before_action :all_buses, only:[:index]
 	before_action :check_role
 
+	
+
 	def index
+		add_breadcrumb "Buses", :admin_buses_path
 	end
 
 	def new
+		add_breadcrumb "Buses", :admin_buses_path
+		add_breadcrumb "New", :new_admin_bus_path
 		@bus = Bus.new
 	end
 
@@ -23,6 +28,8 @@ class Admin::BusesController < ApplicationController
 	end
 
 	def edit
+		add_breadcrumb "Buses", :admin_buses_path
+		add_breadcrumb "Edit", :edit_admin_bus_path
 	end
 
 	def update

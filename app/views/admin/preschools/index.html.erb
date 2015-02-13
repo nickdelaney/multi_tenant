@@ -1,17 +1,11 @@
-<%= render  '/layouts/header' %>
-<div class="container-fluid">
-	<div class="page-header">
-		<div class="row">
-			<div class="col-md-10">
-				<h1>Preschools</h1>
-			</div>
-			<div class="col-md-1">
+<%= page_header 'All Preschools' %>
+<%= page_desc "Listing all preschools" %>
+
 				<%= link_to '+ Add Preschool', new_admin_preschool_path, {:class => "btn btn-default pull-right"} %>
-			</div>
-		</div>
+	
 	
 
-	</div>
+
 	<div class="row">
 		<div class="col-md-9">
 					<div class="table-responsive">

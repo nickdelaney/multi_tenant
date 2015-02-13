@@ -1,10 +1,6 @@
-<%= render  '/layouts/header' %>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8"><h1>Section roster</h1></div>
-		<div class="col-md-4">
-		</div>
-	</div>
+<%= page_header "Roster for #{section_name}" %>
+<%= page_desc "showing students for #{section_name}" %>
+
 <div class="table-responsive">
 	<table class="table table-striped datatable">
 		<thead>

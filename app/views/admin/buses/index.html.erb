@@ -1,10 +1,8 @@
+<%= page_header "View buses" %>
+<%= page_desc "view all buses below" %>
 <%= render  '/layouts/header' %>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8"><h1>Buses</h1></div>
-		<div class="col-md-4">
-			<h2><%= link_to '+ Add Bus', new_admin_bus_path, {:class => "btn btn-default pull-right"} %></h2></div>
-	</div>
+
+			<h2><%= link_to '+ Add Bus', new_admin_bus_path, {:class => "btn btn-default pull-right"} %></h2>
 <div class="table-responsive">
 	<table class="table table-striped datatable">
 		<thead>

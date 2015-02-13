@@ -2,11 +2,12 @@ class Admin::SectionsController < ApplicationController
 	before_action :find_section, only:[:show, :edit, :destroy, :update]
 	before_action :all_sections, only:[:index]
 	before_action :check_role
-
+	add_breadcrumb "Sections", :admin_sections_path
 	def index
 	end
 
 	def new
+		add_breadcrumb "New Section", :new_admin_section_path
 		@section = Section.new
 	end
 
@@ -20,9 +21,11 @@ class Admin::SectionsController < ApplicationController
 	end
 
 	def show
+		add_breadcrumb "Section", :admin_section_path
 	end
 
 	def edit
+		add_breadcrumb "Edit Section", :edit_admin_section_path
 	end
 
 	def update

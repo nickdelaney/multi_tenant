@@ -1,6 +1,5 @@
-<%= render  '/layouts/header' %>
-<div class="container-fluid">
-<h1><%= @user.email %></h1>
+<%= page_header "#{@user.first_name} #{@user.last_name}" %>
+<%= page_desc "showing profile for #{@user.first_name} #{@user.last_name}" %>
 	<h2>Students</h2>
 	<% @students.each do |student| %>
 	<p class="lead">

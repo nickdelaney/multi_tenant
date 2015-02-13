@@ -1,6 +1,6 @@
+<%= page_header "#{@student.first_name} #{@student.last_name}" %>
+<%= page_desc "showing profile for #{@student.first_name} #{@student.last_name}" %>
 <%= render  '/layouts/header' %>
-<div class="container-fluid">
-<h1><%= "#{@student.first_name} #{@student.last_name}" %></h1>
 	
 	<p>
 		<%= link_to 'Enroll', admin_student_section_student_path(:student_id => @student.id)  %> |

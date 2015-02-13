@@ -3,9 +3,11 @@ class Admin::RegistrationsController < Devise::RegistrationsController
 	helper_method :us_states
       prepend_before_filter :require_no_authentication, :only => []
       prepend_before_filter :authenticate_scope!
-
+      add_breadcrumb "Users", :admin_users_path
 	def new
+       add_breadcrumb "New User", :admin_users_path
     	 @user = User.new
+
   	end
 
       def create

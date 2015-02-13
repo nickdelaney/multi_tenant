@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :franchise_name
   before_filter :roster_count
+  add_breadcrumb "Home", :root_path
 
   def after_sign_in_path_for(resource)
   	if current_user.role == 'admin'
@@ -51,6 +52,7 @@ end
  def roster_count
     Roster.count(section_id: params[:id], franchise_id: current_franchise)
   end
+
 
 
 end

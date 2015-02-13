@@ -1,10 +1,8 @@
+<%= page_header "All students" %>
+<%= page_desc "Listing all students below" %>
 <%= render  '/layouts/header' %>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8"><h1>Students</h1></div>
-		<div class="col-md-4">
-			<h2><%= link_to '+ Add Student', new_admin_student_path, {:class => "btn btn-default pull-right"} %></h2></div>
-	</div>
+
+<h2><%= link_to '+ Add Student', new_admin_student_path, {:class => "btn btn-default"} %></h2>
 <div class="table-responsive">
 	<table class="table table-striped datatable">
 		<thead>

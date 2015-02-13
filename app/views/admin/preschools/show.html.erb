@@ -1,6 +1,5 @@
-<%= render  '/layouts/header' %>
-<div class="container-fluid">
-<h1><%= @preschool.name %></h1>
+<%= page_header @preschool.name %>
+<%= page_desc "showing information for #{@preschool.name}" %>
 	<p class="lead">
 		<%= @preschool.description %>
 	</p>

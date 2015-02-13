@@ -107,13 +107,25 @@
               <span>Nick Delaney<i class="fa fa-angle-down"></i> </span> </a>
               <ul class="dropdown-menu user-profile-menu list-unstyled">
                 <li>
-                  <a href="#">Edit Profile</a>
+                  <%= link_to "Edit Profile", edit_admin_user_path(current_user) %>
                 </li>
               </ul>
             </li>
             <li></li>
           </ul>
         </nav>
+        <div class="page-title">
+          <div class="title-cont">
+            <h1 class="title"><%= yield :page_header %></h1>
+            <p class="description"><%= yield :page_desc %></p>
+          </div>
+
+          <div class="breadcrumb-cont">
+            <ol class="breadcrumb">
+              <%= render_breadcrumbs :tag => :li, :separator => "" %>
+            </ol>
+          </div>
+        </div>
 
 <%= yield %>  
 

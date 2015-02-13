@@ -1,10 +1,7 @@
-<%= render  '/layouts/header' %>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8"><h1>Faculty Members</h1></div>
-		<div class="col-md-4">
-			<h2><%= link_to '+ Add User', admin_registrations_new_path, {:class => "btn btn-default pull-right"} %></h2></div>
-	</div>
+<%= page_header "Faculty Members" %>
+<%= page_desc "listing all faculty members" %>
+
+			<h2><%= link_to '+ Add User', admin_registrations_new_path, {:class => "btn btn-default"} %></h2>
 <div class="table-responsive">
 	<table class="table table-striped datatable">
 		<thead>

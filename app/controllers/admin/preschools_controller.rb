@@ -2,7 +2,7 @@ class Admin::PreschoolsController < ApplicationController
 	before_action :find_preschool, only:[:show, :edit, :destroy, :update]
 	before_action :check_role
 	#before_action :all_preschools, only:[:index]
-
+  	add_breadcrumb "Preschools", :admin_preschools_path
 	def index
 		@search  = Preschool.search(params[:q])
 		@preschools = @search.result
@@ -11,9 +11,11 @@ class Admin::PreschoolsController < ApplicationController
 	end
 
 	def show
+		 add_breadcrumb "Preschool", :admin_preschool_path
 	end
 
 	def new
+		add_breadcrumb "New Preschool", :new_admin_preschool_path
 		@preschool = Preschool.new
 	end
 
@@ -27,6 +29,8 @@ class Admin::PreschoolsController < ApplicationController
 	end
 
 	def edit
+		add_breadcrumb "Preschool", :admin_preschool_path
+		add_breadcrumb "Edit", :edit_admin_preschool_path
 	end
 
 	def update

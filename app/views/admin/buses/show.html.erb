@@ -1,6 +1,7 @@
-<%= render  '/layouts/header' %>
-<div class="container-fluid">
-<h1><%= @bus.name %></h1>
+<%= page_header @bus.name %>
+<%= page_desc "showing information for: #{@bus.name}" %>
+
+
 	<p class="lead">
 		<%= @bus.description %>
 	</p>
@@ -8,4 +9,3 @@
 		<%= link_to 'Edit', edit_admin_bus_path(@bus) %> |
 		<%= link_to 'Destroy', admin_bus_path(@bus), method: :delete, data: { confirm: 'Are you sure?' } %>
 	</p>
-</div>
