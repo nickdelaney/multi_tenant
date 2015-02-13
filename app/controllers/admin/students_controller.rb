@@ -2,11 +2,12 @@ class Admin::StudentsController < ApplicationController
 	before_action :find_student, only:[:show, :edit, :destroy, :update, :enroll]
 	before_action :all_students, only:[:index]
 	before_action :check_role
-	
+	add_breadcrumb "Students", :admin_students_path
 	def index
 	end
 
 	def new
+		add_breadcrumb "New Student", :new_admin_student_path
 		@student = Student.new
 	end
 
@@ -21,6 +22,7 @@ class Admin::StudentsController < ApplicationController
 	end
 
 	def show
+		add_breadcrumb "Student", :admin_student_path
 		@rosters = @student.rosters
 	end
 
@@ -30,6 +32,7 @@ class Admin::StudentsController < ApplicationController
 	end
 
 	def section
+		add_breadcrumb "Choose Section", :admin_student_section_student_path
 		@student = Student.find(params[:student_id])
 		@sections = Section.where(preschool: @student.preschool)
 	end

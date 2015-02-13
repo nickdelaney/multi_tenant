@@ -45,6 +45,7 @@ body{font-family:Arimo !important;font-size:13px !important;line-height:1.4 !imp
 .user-info-menu .user-icon{width:40px;height:40px;background:#fff;border-radius:50%;}
 .user-info-menu .userpic-32{margin-top: -8px;top: 8px;}
 .user-info-menu .user-profile{max-height:76px;}
+.user-info-menu .badge{font-size:9px;position:absolute;top:20px;right:10px;padding:4px;min-width:18px;font-weight:400;line-height:1;background:#e36a6e;}
 .user-profile-menu{right:-1px;left:auto;width:250px;border-radius:0px;top:83px;}
 
 .sidebar{display:table-cell;position:relative;background:#253241;z-index:1;width:270px;height:100vh;min-height:100vh;}

@@ -1,9 +1,11 @@
 class Admin::UsersController < ApplicationController
+	add_breadcrumb "Members", :admin_users_path
 	def index
 		@users = User.where(franchise_id: current_franchise, role: 2)
 	end
 
 	def faculty
+		add_breadcrumb "Faculty", :faculty_admin_users_path
 		@employees = User.where(franchise_id: current_franchise, role: 1)
 	end
 
@@ -12,6 +14,7 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def show
+		add_breadcrumb "Member", :admin_user_path
 		@user = User.find_by(id: params[:id], franchise_id: current_franchise)
 		@students = Student.where(franchise_id: current_franchise, user_id: params[:id])
 	end

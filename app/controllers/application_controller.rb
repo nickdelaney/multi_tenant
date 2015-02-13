@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   before_filter :franchise_name
   before_filter :roster_count
   add_breadcrumb "Home", :root_path
@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
         @franchise = Franchise.find(current_franchise)
         @franchise_name = @franchise.name
       end
+  end
+
+  def new_message_count
+    current_user.mailbox.inbox({:read => false}).count
   end
 
   def check_role
@@ -53,6 +57,6 @@ end
     Roster.count(section_id: params[:id], franchise_id: current_franchise)
   end
 
-
+helper_method :new_message_count
 
 end

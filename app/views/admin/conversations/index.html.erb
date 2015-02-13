@@ -1,8 +1,19 @@
 <%= page_header "Your Messages" %>
 <%= page_desc "view all your messages below" %>
-<%= link_to 'Start conversation', new_admin_message_path, class: 'btn btn-lg btn-primary' %>
-<ul class="list-group">
-  <%= render partial: 'admin/conversations/conversation', collection: @conversations %>
-</ul>
+<div class="row">
+
+    <ul class="nav nav-pills">
+      <%= mailbox_section 'inbox', @box %>
+      <%= mailbox_section 'sent', @box %>
+      <%= mailbox_section 'trash', @box %>
+    </ul>
+
  
- <%= will_paginate %>
+
+    <ul class="list-group">
+      <%= render partial: 'admin/conversations/conversation', collection: @conversations %>
+    </ul>
+ 
+    <%= will_paginate %>
+<%= link_to 'Send new message', new_admin_message_path, class: 'btn btn-lg btn-primary' %>
+</div>

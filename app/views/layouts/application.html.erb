@@ -85,6 +85,9 @@
             <li>
               <%= link_to(admin_conversations_path) do %>
                 <i class="fa fa-envelope-o"></i>
+                <% if new_message_count > 0 %>
+                <span class="badge badge-green"><%= new_message_count %></span>
+                <% end %>
               <% end %>
             </li>
             <li class="dropdown">
@@ -126,11 +129,15 @@
             </ol>
           </div>
         </div>
-
-<%= yield %>  
+  <div class="panel panel-default">
+  <div class="panel-body">
+    <%= yield %>  
+  </div>
+</div>
 
 <script type="text/javascript">
 $(document).ready(function(){
+  $('.chosen-it').chosen();
     $('.datepicker').datepicker({
       format: 'yyyy-dd-mm'
     });
