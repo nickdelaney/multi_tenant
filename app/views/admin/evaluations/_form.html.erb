@@ -1,0 +1,30 @@
+<%= form_for [:admin , @evaluation] , :html => { :multipart => true } do |f| %>
+	<div class="form-group">
+		<%= f.label :field %>
+		<%= f.select :field, options_for_select([['Good'],['Bad'],['Great']]), {}, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :field2 %>
+		<%= f.select :field2, options_for_select([['Good'],['Bad'],['Great']]), {},{:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :field3 %>
+		<%= f.select :field3, options_for_select([['Good'],['Bad'],['Great']]), {},{:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :picture %>
+		<%= f.file_field :picture, {:class => 'form-control'} %>
+	</div>
+
+
+
+
+		<%= f.hidden_field :user_id, :value => params[:user_id] %>
+		<%= f.hidden_field :student_id, :value => params[:student_id] %>
+	<div class="form-group">
+		<%= f.submit  :class => 'btn btn-default' %>
+	</div>				
+<% end %>

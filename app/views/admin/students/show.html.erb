@@ -5,8 +5,17 @@
 	<p>
 		<%= link_to 'Enroll', admin_student_section_student_path(:student_id => @student.id)  %> |
 		<%= link_to 'Edit', edit_admin_student_path(@student) %> |
-		<%= link_to 'Destroy', admin_student_path(@student), method: :delete, data: { confirm: 'Are you sure?' } %>
+		<%= link_to 'Destroy', admin_student_path(@student), method: :delete, data: { confirm: 'Are you sure?' } %> | 
+		<%= link_to 'New Evaluation', new_admin_evaluation_path(:student_id => @student.id, :user_id => @student.user_id) %>
 	</p>
+	<div class="row">
+		<h2>Evaluations</h2>
+		<ul class="evaluations" style="list-style:none;">
+			<% @evaluations.each do |eval| %>
+			<li><%= link_to "Evaluation For #{eval.created_at.to_formatted_s(:long_ordinal)}", admin_evaluation_path(eval) %></li>
+			<% end %>
+		</ul>
+	</div>
 	<div class="row">
 		<div class="col-md-5">
 				<h2>Enrolled in</h2>

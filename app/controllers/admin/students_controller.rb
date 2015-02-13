@@ -50,11 +50,11 @@ class Admin::StudentsController < ApplicationController
 	private
 	def all_students
 		@students = Student.where(franchise_id: current_franchise)
-
 	end
 
 	def find_student
 		@student = Student.find_by(id: params[:id], franchise_id: current_franchise)
+		@evaluations = Evaluation.where(student_id: params[:id], franchise_id: current_franchise)
 	end
 
 	def student_params

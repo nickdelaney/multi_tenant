@@ -1,0 +1,18 @@
+<%= page_header "Evaluation for #{@evaluation.student.first_name} #{@evaluation.student.last_name}" %>
+<%= page_desc "Showing evaluation for #{@evaluation.student.first_name} #{@evaluation.student.last_name}" %>
+	<h3>Field 1</h3>
+	<p><%= @evaluation.field %></p>
+
+	<h3>Field 2</h3>
+	<p><%= @evaluation.field2 %></p>
+
+	<h3>Field 3</h3>
+	<p><%= @evaluation.field3 %></p>
+
+	<h3>Today's Picture</h3>
+	<p><%= image_tag(@evaluation.picture.url(:medium)) %>
+	<p>
+		<%= link_to 'Edit', edit_admin_preschool_path(@evaluation) %> |
+		<%= link_to 'Destroy', admin_preschool_path(@evaluation), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+</div>

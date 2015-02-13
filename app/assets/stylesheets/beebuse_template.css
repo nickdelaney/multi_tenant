@@ -48,7 +48,7 @@ body{font-family:Arimo !important;font-size:13px !important;line-height:1.4 !imp
 .user-info-menu .badge{font-size:9px;position:absolute;top:20px;right:10px;padding:4px;min-width:18px;font-weight:400;line-height:1;background:#e36a6e;}
 .user-profile-menu{right:-1px;left:auto;width:250px;border-radius:0px;top:83px;}
 
-.sidebar{display:table-cell;position:relative;background:#253241;z-index:1;width:270px;height:100vh;min-height:100vh;}
+.sidebar{display:table-cell;background:#253241;z-index:1;width:270px;height:100vh;min-height:100vh;}
 
 .collapsed{width:80px;overflow:scroll;}
 .collapsed .title{display:none;}
