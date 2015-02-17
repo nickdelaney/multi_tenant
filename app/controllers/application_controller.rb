@@ -28,7 +28,9 @@ class ApplicationController < ActionController::Base
   end
 
   def new_message_count
-    current_user.mailbox.inbox({:read => false}).count
+    if user_signed_in?
+      current_user.mailbox.inbox({:read => false}).count
+    end
   end
 
   def check_role

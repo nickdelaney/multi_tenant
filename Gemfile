@@ -28,7 +28,7 @@ gem 'filterrific', '~> 2.0.3'
 gem 'jquery-datatables-rails', '~> 3.1.1'
 gem 'cancan', '~> 1.6.10'
 gem 'ransack', '~> 1.6.3'
-gem 'bootstrap-datepicker-rails'
+#gem 'bootstrap-datepicker-rails'
 gem 'activemerchant', :require => 'active_merchant'
 gem "mailboxer"
 gem 'will_paginate'

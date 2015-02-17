@@ -1,15 +1,14 @@
 <%= page_header 'All Preschools' %>
 <%= page_desc "Listing all preschools" %>
 
-				<%= link_to '+ Add Preschool', new_admin_preschool_path, {:class => "btn btn-default pull-right"} %>
+				<%= link_to '+ Add Preschool', new_admin_preschool_path, {:class => "btn btn-default"} %>
 	
-	
+	<p>&nbsp;</p>
 
 
-	<div class="row">
-		<div class="col-md-9">
+
 					<div class="table-responsive">
-						<table class="table table-striped table-hover table-bordered f">
+						<table class="table table-striped table-hover table-bordered">
 							<thead>
 								<tr>
 									<td><%= sort_link @search, :name, "Preschool Name" %></td>
@@ -35,11 +34,12 @@
 								<% end %>
 							</tbody>
 						</table>
-					</div>
-				</div>
-
-		<div class="col-md-3">
-			<%= search_form_for [:admin, @search] do |f| %>
+			
+			    <div class="filter-container">
+    	<div class="filter-button">
+        	<i class="fa fa-filter"></i>
+        </div>
+        <%= search_form_for [:admin, @search] do |f| %>
 				<%= f.condition_fields do |c| %>
 					<div class="form-group">
 						<%= c.attribute_fields do |a| %>
@@ -55,9 +55,16 @@
 					<%= f.submit :class => 'btn btn-default'%>
 				</div>
 			<% end %>
-		</div>
-	</div>	
+    </div>
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$('.filter-button').click(function(){
+				$('.filter-container').toggleClass('filter-open',1000)
+				});
+			});
+	</script>
 
+		
 
 </div>
   

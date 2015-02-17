@@ -83,11 +83,13 @@
               </a>
             </li>
             <li>
+              <% if user_signed_in? %>
               <%= link_to(admin_conversations_path) do %>
                 <i class="fa fa-envelope-o"></i>
                 <% if new_message_count > 0 %>
                 <span class="badge badge-green"><%= new_message_count %></span>
                 <% end %>
+              <% end %>
               <% end %>
             </li>
             <li class="dropdown">
@@ -105,12 +107,14 @@
               </a>
             </li>
             <li class="user-profile">
+              <% if user_signed_in? %>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> 
               <img src="http://themes.laborator.co/xenon/assets/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28"> 
               <span>Nick Delaney<i class="fa fa-angle-down"></i> </span> </a>
               <ul class="dropdown-menu user-profile-menu list-unstyled">
                 <li>
                   <%= link_to "Edit Profile", edit_admin_user_path(current_user) %>
+                  <% end %>
                 </li>
               </ul>
             </li>

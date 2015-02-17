@@ -23,6 +23,10 @@ body{font-family:Arimo !important;font-size:13px !important;line-height:1.4 !imp
 .page-container .main-content .page-title .title-cont{float:left;padding-left:30px;color:#fff;}
 .page-container .main-content .page-title .title-cont .description{color:#486469;}
 
+.filter-container{width:240px;background:#fff;position:fixed;top:205px;right:-240px;border:1px solid #aaa;z-index:99;padding:10px;box-sizing:border-box;}
+.filter-button{margin-left:-40px;background:#26d9e8;color:#fff;font-size:18px;text-align:center;display:table-cell;vertical-align:middle;width:30px;height:30px;padding-top:3px;box-sizing:border-box;position:absolute;}
+.filter-open{right:0px;}
+
 .form-control{border:1px solid #e4e4e4;border-radius:0px;}
 .form-row{overflow:auto;}
 .form-group-seperator{height: 1px;background: #eee;margin-bottom: 15px;}
