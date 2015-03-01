@@ -45,7 +45,7 @@ class PaymentsController < ApplicationController
   end
 
   def credit_params
-    params.require(:creditcard).permit(:name,:number,:month,:year,:verification_value)
+    params.require(:creditcard).permit(:first_name,:last_name,:number,:month,:year,:verification_value)
   end
 
   def gateway

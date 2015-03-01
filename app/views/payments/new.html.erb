@@ -6,8 +6,12 @@
 	</div>
 	<%= fields_for :creditcard, @creditcard do |cc| %>
 		<div class="form-group">
-			<%= cc.label :name %>
-			<%= cc.text_field :name, {:class => 'form-control'} %>
+			<%= cc.label :first_name %>
+			<%= cc.text_field :first_name, {:class => 'form-control'} %>
+		</div>
+		<div class="form-group">
+			<%= cc.label :last_name %>
+			<%= cc.text_field :last_name, {:class => 'form-control'} %>
 		</div>
 		<div class="form-group">
 			<%= cc.label :number %>

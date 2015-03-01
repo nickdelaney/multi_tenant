@@ -61,6 +61,11 @@ body{font-family:Arimo !important;font-size:13px !important;line-height:1.4 !imp
 .collapsed a{padding:24px 0 !important;}
 .collapsed a>.ico{font-size:24px !important;}
 
+.user-profile .user-header{margin-bottom:30px;}
+.user-profile{border-right: 1px solid #DDDDDD;padding-left:0px;padding-right:20px;padding-top:0px;padding-bottom:0px;}
+.user-profile table{width:100%;}
+.user-profile td{border-bottom:1px solid #ccc;padding:5px;}
+
 
 .table.table-bordered {border-color: #eee;}
 
