@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   root to: "admin/dashboard#index"
 
   namespace :admin do
+    resources :payments do
+      collection do
+        get 'newProfile'
+      end
+    end
+    match 'payments/newProfile' => 'payments#newProfile', :via => :get
     resources :evaluations
     resources :conversations, only: [:index, :show, :destroy] do
       member do
@@ -31,6 +37,8 @@ Rails.application.routes.draw do
     end
 
     resources :users do
+      match 'newProfile', to: 'users#newProfile', via: :get
+      match 'newProfile', to: 'users#createProfile', via: :post
       resources :students
       collection do
        get 'faculty'
