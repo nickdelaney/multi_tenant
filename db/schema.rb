@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301200624) do
+ActiveRecord::Schema.define(version: 20150302221641) do
+
+  create_table "auto_billings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "amount"
+    t.integer  "credits"
+    t.string   "active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "franchise_id"
+  end
+
+  add_index "auto_billings", ["franchise_id"], name: "index_auto_billings_on_franchise_id"
+  add_index "auto_billings", ["user_id"], name: "index_auto_billings_on_user_id"
 
   create_table "buses", force: :cascade do |t|
     t.string   "name"

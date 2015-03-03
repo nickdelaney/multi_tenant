@@ -1,8 +1,34 @@
 <%= form_for :paymentProfile do |f| %>
-  	<div class="form-group">
-		<%= f.label :amount %>
-		<%= f.text_field :amount, {:class => 'form-control'} %>
-	</div>
+	<%= fields_for :billinginfo, @billinginfo do |b| %>
+		<div class="form-group">
+			<%= b.label :first_name %>
+			<%= b.text_field :first_name, {:class => 'form-control'} %>
+		</div>
+		<div class="form-group">
+			<%= b.label :last_name %>
+			<%= b.text_field :last_name, {:class => 'form-control'} %>
+		</div>
+		<div class="form-group">
+			<%= b.label :address %>
+			<%= b.text_field :address, {:class => 'form-control'} %>
+		</div>
+		<div class="form-group">
+			<%= b.label :city %>
+			<%= b.text_field :city, {:class => 'form-control'} %>
+		</div>
+	  	<div class="form-group">
+		    <%= b.label :state %><br />
+		    <%= b.select(:state, options_for_select(us_states),{}, {:class => 'form-control'} )%>
+  		</div>
+		<div class="form-group">
+			<%= b.label :zip %>
+			<%= b.text_field :zip, {:class => 'form-control'} %>
+		</div>
+		<div class="form-group">
+			<%= b.label :phone_number %>
+			<%= b.text_field :phone_number, {:class => 'form-control'} %>
+		</div>
+	<% end %>
 	<%= fields_for :creditcard, @creditcard do |cc| %>
 		<div class="form-group">
 			<%= cc.label :name %>
@@ -26,6 +52,6 @@
 		</div>
 	<% end %>
 	<div class="form-group">
-		<%= f.submit 'Pay' %>
+		<%= f.submit 'Update' %>
 	</div>
 <% end %>

@@ -50,7 +50,33 @@
 					</tr>
 					<% end %>
 				</table>
-				<p style="margin-top:10px;"><%= link_to 'Add Student', new_admin_user_student_path(@user, :id => @user.id) %></p>
+					<p style="margin-top:10px;"><%= link_to 'Add Student', new_admin_user_student_path(@user, :id => @user.id) %></p>
+				<h4 style="border-bottom:1px solid #DDD;padding-bottom:10px;margin-top:30px;">Payment Profile</h4>
+				<% if @user.payment_profile_id %>
+				<table class="profiles">
+					<tr>
+						<td><%= @payment_profile.params["profile"]["payment_profiles"]["payment"]["credit_card"]["card_number"] %> </td>
+						<td><%= link_to "Edit", admin_user_editProfile_path(@user) %></td>
+					</tr>
+				</table>
+				<% end %>
+				<p style="margin-top:10px;"><%= link_to 'Add Payment Profile', admin_user_newProfile_path(@user) %></p>
+
+				<h4 style="border-bottom:1px solid #DDD;padding-bottom:10px;margin-top:30px;">Recurring Payments</h4>
+
+				<table class="recurringpayments">
+					<% @recurring_payments.each do |payment| %>
+						<% if payment.active = 1 %>
+							<tr>
+								<td><%= payment.credits %> credits monthly</td>
+								<td>Edit | <%= link_to 'Destroy', admin_user_auto_billing_path(@user.id,payment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</table>
+			<p style="margin-top:10px;"><%= link_to 'New Recurring Payment', new_admin_user_auto_billing_path(@user, :id => @user.id) %></p>
+
+
 		</div>	
 	</div>
 	<div class="col-md-8">

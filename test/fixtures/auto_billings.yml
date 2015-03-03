@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  amount: MyString
+  credits: 1
+  active: MyString
+
+two:
+  user_id: 
+  amount: MyString
+  credits: 1
+  active: MyString

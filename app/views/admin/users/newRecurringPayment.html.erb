@@ -1,0 +1,9 @@
+<%= form_for :autoBilling do |f| %>
+		<div class="form-group">
+			<%= f.label :credits %>
+			<%= f.number_field :credits, {:class => 'form-control'} %>
+		</div>
+		<div class="form-group">
+			<%= f.submit 'Create Recurring Payment' %>
+		</div>
+<% end %>

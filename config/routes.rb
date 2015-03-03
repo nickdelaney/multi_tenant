@@ -4,11 +4,6 @@ Rails.application.routes.draw do
   root to: "admin/dashboard#index"
 
   namespace :admin do
-    resources :payments do
-      collection do
-        get 'newProfile'
-      end
-    end
     match 'payments/newProfile' => 'payments#newProfile', :via => :get
     resources :evaluations
     resources :conversations, only: [:index, :show, :destroy] do
@@ -39,13 +34,22 @@ Rails.application.routes.draw do
     resources :users do
       match 'newProfile', to: 'users#newProfile', via: :get
       match 'newProfile', to: 'users#createProfile', via: :post
+      match 'editProfile', to: 'users#editProfile', via: :get
+      match 'editProfile', to: 'users#updateProfile', via: :post
       resources :students
+      resources :auto_billings
       collection do
        get 'faculty'
       end
     end
 
+  resources :auto_billings do
+    collection do
+      get 'bill_users'
+    end
   end
+  end
+
   
   resources :payments
   devise_for :users
