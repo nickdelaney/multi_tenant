@@ -1,0 +1,5 @@
+-	@buses.each do |bus|
+	%h1= bus.name
+	%p= bus.description
+
+= link_to "Add Bus", new_bus_path(@bus)

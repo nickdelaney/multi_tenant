@@ -1,0 +1,5 @@
+%h1= 'Preschools'
+
+-	@preschools.each do |preschool|
+	%h1= link_to preschool.name, preschool
+	%p= preschool.description

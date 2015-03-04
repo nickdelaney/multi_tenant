@@ -2,6 +2,7 @@
 
 one:
   name: MyString
+<<<<<<< HEAD
   description: MyText
   class_size: 1
   section_time: MyString
@@ -15,3 +16,16 @@ two:
   section_time: MyString
   preschool_id: 
   franchise_id: 
+=======
+  description: MyString
+  class_size: 1
+  section_time: MyString
+  preschool_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  class_size: 1
+  section_time: MyString
+  preschool_id: 1
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7

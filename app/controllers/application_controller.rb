@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+<<<<<<< HEAD
   protect_from_forgery with: :null_session
   before_filter :franchise_name
   before_filter :gateway
@@ -136,4 +137,15 @@ end
 
 helper_method :new_message_count
 
+=======
+  protect_from_forgery with: :exception
+
+  def authenticate_active_admin_user!
+        authenticate_user!
+        unless current_user.role?(:administrator)
+            flash[:alert] = 'You are not allowed here!'
+            redirect_to root_path
+        end
+    end
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
 end

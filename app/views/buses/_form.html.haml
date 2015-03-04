@@ -1,0 +1,9 @@
+= simple_form_for @bus do |f|
+	=f.input :name
+	=f.input :description
+
+	= f.label :franchise
+	%br
+	= f.select :franchise, @franchises.map{ |r| [r.name, r.id] }
+
+	= f.button :submit

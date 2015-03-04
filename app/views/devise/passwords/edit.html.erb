@@ -1,5 +1,6 @@
 <h2>Change your password</h2>
 
+<<<<<<< HEAD
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
@@ -16,6 +17,21 @@
 
   <div class="actions">
     <%= f.submit "Change my password" %>
+=======
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :reset_password_token, as: :hidden %>
+  <%= f.full_error :reset_password_token %>
+
+  <div class="form-inputs">
+    <%= f.input :password, label: "New password", required: true, autofocus: true %>
+    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Change my password" %>
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
   </div>
 <% end %>
 

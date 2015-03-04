@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   section_id: 
   franchise_id: 
   student_id: 
@@ -9,3 +10,11 @@ two:
   section_id: 
   franchise_id: 
   student_id: 
+=======
+  student_id: 1
+  section_id: 1
+
+two:
+  student_id: 1
+  section_id: 1
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7

@@ -3,9 +3,17 @@
 one:
   name: MyString
   description: MyString
+<<<<<<< HEAD
   franchise_id: 
+=======
+  franchise_id: 1
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
 
 two:
   name: MyString
   description: MyString
+<<<<<<< HEAD
   franchise_id: 
+=======
+  franchise_id: 1
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7

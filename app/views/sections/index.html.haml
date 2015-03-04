@@ -1,0 +1,6 @@
+%h1= 'Sections'
+
+-	@sections.each do |section|
+	%h1= link_to section.name, section
+	%p= section.description
+%h4= link_to "Add section", new_section_path

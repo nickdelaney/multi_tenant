@@ -1,0 +1,10 @@
+= simple_form_for @student do |f|
+	=f.input :first_name
+	=f.input :last_name
+	=f.input :birthdate
+
+	= f.label :preschool
+	%br
+	= f.select :preschool, @preschools.map{ |r| [r.name, r.id] }
+
+	= f.button :submit

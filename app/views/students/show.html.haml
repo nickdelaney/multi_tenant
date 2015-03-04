@@ -1,0 +1,7 @@
+%h1= "#{@student.first_name} #{@student.last_name}"
+%h2= "Age: #{@age}"
+%p= "Preschool: #{@preschool.name}"
+
+= link_to "Edit", edit_student_path(@student)
+= link_to "Destroy", student_path(@student), method: :delete, data: { confirm: "Are you sure?"}
+= link_to "Home", root_path

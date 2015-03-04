@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150302221641) do
 
   create_table "auto_billings", force: :cascade do |t|
@@ -141,12 +142,50 @@ ActiveRecord::Schema.define(version: 20150302221641) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "preschools", force: :cascade do |t|
+=======
+ActiveRecord::Schema.define(version: 20150201121838) do
+
+  create_table "active_admin_comments", force: true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "buses", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "franchise_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "franchises", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "preschools", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
     t.string   "name"
     t.text     "description"
     t.string   "address_1"
     t.string   "address_2"
     t.string   "city"
     t.string   "state"
+<<<<<<< HEAD
     t.string   "zip"
     t.string   "phone"
     t.string   "director"
@@ -190,10 +229,37 @@ ActiveRecord::Schema.define(version: 20150302221641) do
   add_index "sections", ["preschool_id"], name: "index_sections_on_preschool_id"
 
   create_table "students", force: :cascade do |t|
+=======
+    t.integer  "zip"
+    t.string   "phone"
+    t.string   "director"
+    t.integer  "franchise_id"
+  end
+
+  create_table "rosters", force: true do |t|
+    t.integer  "student_id"
+    t.integer  "section_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sections", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "class_size"
+    t.string   "section_time"
+    t.integer  "preschool_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "students", force: true do |t|
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthdate"
     t.integer  "user_id"
+<<<<<<< HEAD
     t.integer  "franchise_id"
     t.integer  "preschool_id"
     t.datetime "created_at",   null: false
@@ -206,5 +272,31 @@ ActiveRecord::Schema.define(version: 20150302221641) do
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+=======
+    t.string   "preschool_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "franchise_id"
+    t.string   "role"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
 
 end

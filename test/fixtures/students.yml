@@ -3,15 +3,27 @@
 one:
   first_name: MyString
   last_name: MyString
+<<<<<<< HEAD
   birthdate: 2015-02-07
   user_id: 
   franchise_id: 
   preschool_id: 
+=======
+  birthdate: 2015-01-31
+  user_id: 1
+  preschool_id: MyString
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
 
 two:
   first_name: MyString
   last_name: MyString
+<<<<<<< HEAD
   birthdate: 2015-02-07
   user_id: 
   franchise_id: 
   preschool_id: 
+=======
+  birthdate: 2015-01-31
+  user_id: 1
+  preschool_id: MyString
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7

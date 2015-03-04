@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
   <head>
     <title></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -157,6 +158,20 @@ $(document).ready(function(){
   </script>
 </div>
 </div>
+=======
+<head>
+  <title>Beebus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+		<%= render partial: 'layouts/header' %>
+	
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+<%= yield %>
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
 
 </body>
 </html>

@@ -1,0 +1,11 @@
+= simple_form_for @section do |f|
+	=f.input :name
+	=f.input :description
+	=f.input :class_size
+	=f.input :section_time
+
+	= f.label :preschool
+	%br
+	= f.select :preschool, @preschools.map{ |r| [r.name, r.id] }
+
+	= f.button :submit

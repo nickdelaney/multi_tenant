@@ -1,0 +1,4 @@
+-	@franchises.each do |franchise|
+	%h2= link_to franchise.name, franchise
+
+= link_to "Add Franchise", new_franchise_path(@franchise)

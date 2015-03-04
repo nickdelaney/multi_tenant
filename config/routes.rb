@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
 
   root to: "admin/dashboard#index"
@@ -54,6 +55,16 @@ Rails.application.routes.draw do
   resources :payments
   devise_for :users
   
+=======
+  ActiveAdmin.routes(self)
+  root 'franchises#index'
+  devise_for :users, :controllers => { registrations: 'registrations'}
+  resources :franchises
+  resources :buses
+  resources :preschools
+  resources :students
+  resources :sections
+>>>>>>> 59ae499b83e751e8276da80321f5d08ce2d964a7
 
   
 end
