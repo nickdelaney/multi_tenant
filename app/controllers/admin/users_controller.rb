@@ -34,6 +34,8 @@ class Admin::UsersController < ApplicationController
 		@newProfile = PaymentProfile.new
 	end
 
+
+
 	def createProfile
 		@user = User.find_by(id: params[:user_id], franchise_id: current_franchise)
 		@customer_profile_id = @user.customer_profile_id

@@ -59,8 +59,10 @@
 						<td><%= link_to "Edit", admin_user_editProfile_path(@user) %></td>
 					</tr>
 				</table>
+				<% else %>
+				<p style="margin-top:10px;"><%= link_to 'Add Payment Profile', admin_user_newProfile_path(@user, :id => @user.id) %></p>
 				<% end %>
-				<p style="margin-top:10px;"><%= link_to 'Add Payment Profile', admin_user_newProfile_path(@user) %></p>
+
 
 				<h4 style="border-bottom:1px solid #DDD;padding-bottom:10px;margin-top:30px;">Recurring Payments</h4>
 
