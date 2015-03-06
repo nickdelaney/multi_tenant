@@ -17,6 +17,7 @@ class Admin::UsersController < ApplicationController
 		@user = User.find_by(id: params[:id], franchise_id: current_franchise)
 		@students = Student.where(franchise_id: current_franchise, user_id: params[:id])
 		@transactions = Transaction.where(franchise_id: current_franchise, user_id: params[:id])
+		@checkins = Checkin.where(franchise_id: current_franchise, user_id: params[:id])
 		@recurring_payments = AutoBilling.where(franchise_id: current_franchise, user_id: params[:id])
 		@payment_profile = @cim.get_customer_profile(
 				:customer_profile_id => @user.customer_profile_id

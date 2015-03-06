@@ -46,6 +46,15 @@ class Admin::StudentsController < ApplicationController
 		 end
 	end
 
+	def checkin
+		@student = Student.find(params[:student_id])
+			if @student.checkins.create(section_id: params[:section_id], franchise_id: current_franchise, user_id: user.id)
+				redirect_to admin_student_path(@student)
+			else
+				render 'section'
+			end
+	end
+
 
 	private
 	def all_students
