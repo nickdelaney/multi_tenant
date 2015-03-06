@@ -6,4 +6,6 @@ class Franchise < ActiveRecord::Base
 	has_many :students
 	has_many :sections
 	has_many :auto_billings
+	has_many :transactions
+	has_many :checkins
 end

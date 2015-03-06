@@ -11,6 +11,11 @@
 	</div>
 
 	<div class="form-group">
+		<%= f.label :birthdate %>
+		<%= f.text_field :birthdate, {:class => 'form-control'} %>
+	</div>
+
+	<div class="form-group">
 		<%= f.label :preschool_id %>
 		<%= f.collection_select :preschool_id, Preschool.all, :id, :name, {prompt: "Select a preschool"}, {class: "form-control"} %>
 	</div>

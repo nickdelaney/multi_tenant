@@ -24,21 +24,24 @@ class Admin::AutoBillingsController < ApplicationController
 	end
 
 	def bill_users
+
 		@invoices = AutoBilling.where(franchise_id: current_franchise,active: '1')
 		@invoices.each do |invoice|
-		@response =	@cim.create_customer_profile_transaction(
-				:transaction => {
-					:type => :auth_only,
-					:amount => invoice.amount.to_i,
-					:customer_profile_id => invoice.user.try(:customer_profile_id),
-					:customer_payment_profile_id => invoice.user.try(:payment_profile_id)
-					})
+			@response =	@cim.create_customer_profile_transaction(
+					:transaction => {
+						:type => :auth_only,
+						:amount => invoice.amount.to_i,
+						:customer_profile_id => invoice.user.try(:customer_profile_id),
+						:customer_payment_profile_id => invoice.user.try(:payment_profile_id)
+						})
+			if @response.success?
+					@credits = Credit.new(:franchise_id => invoice.user.try(:franchise_id), :count => invoice.credits, :user_id => invoice.user.try(:id))
+					@transaction = Transaction.new(:amount => invoice.amount, :user_id => invoice.user.try(:id), :franchise_id => invoice.user.try(:franchise_id), :tran_id => @response.params['direct_response']['transaction_id'], :description => "Reloaded #{invoice.credits}  credits to profile")
+					@transaction.save
+					@credits.save
+			end
 		end
-		if @response.success?
-			redirect_to admin_users_path
-		else
-			redirect_to admin_buses_path
-		end
+	
 		
 	end
 

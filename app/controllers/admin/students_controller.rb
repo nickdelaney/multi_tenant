@@ -58,6 +58,6 @@ class Admin::StudentsController < ApplicationController
 	end
 
 	def student_params
-		params.require(:student).permit(:first_name,:last_name, :user_id, :preschool_id).merge(franchise_id: current_franchise)
+		params.require(:student).permit(:first_name,:last_name, :user_id, :preschool_id, :birthdate).merge(franchise_id: current_franchise)
 	end
 end

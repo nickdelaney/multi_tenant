@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302221641) do
+ActiveRecord::Schema.define(version: 20150306011821) do
 
   create_table "auto_billings", force: :cascade do |t|
     t.integer  "user_id"
@@ -35,6 +35,31 @@ ActiveRecord::Schema.define(version: 20150302221641) do
   end
 
   add_index "buses", ["franchise_id"], name: "index_buses_on_franchise_id"
+
+  create_table "checkins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "franchise_id"
+    t.integer  "section_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "student_id"
+  end
+
+  add_index "checkins", ["franchise_id"], name: "index_checkins_on_franchise_id"
+  add_index "checkins", ["section_id"], name: "index_checkins_on_section_id"
+  add_index "checkins", ["student_id"], name: "index_checkins_on_student_id"
+  add_index "checkins", ["user_id"], name: "index_checkins_on_user_id"
+
+  create_table "credits", force: :cascade do |t|
+    t.integer  "franchise_id"
+    t.string   "count"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "credits", ["franchise_id"], name: "index_credits_on_franchise_id"
+  add_index "credits", ["user_id"], name: "index_credits_on_user_id"
 
   create_table "evaluations", force: :cascade do |t|
     t.string   "field"
@@ -203,6 +228,19 @@ ActiveRecord::Schema.define(version: 20150302221641) do
   add_index "students", ["franchise_id"], name: "index_students_on_franchise_id"
   add_index "students", ["preschool_id"], name: "index_students_on_preschool_id"
   add_index "students", ["user_id"], name: "index_students_on_user_id"
+
+  create_table "transactions", force: :cascade do |t|
+    t.string   "amount"
+    t.string   "description"
+    t.string   "tran_id"
+    t.integer  "franchise_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "transactions", ["franchise_id"], name: "index_transactions_on_franchise_id"
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

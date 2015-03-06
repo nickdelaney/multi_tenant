@@ -6,5 +6,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :students
   has_many :autoBillings
+  has_many :transactions
+  has_many :checkins
+
   belongs_to :role
 end
