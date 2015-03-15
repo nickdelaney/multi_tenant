@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   	resources :franchises
   	resources :preschools
   	resources :sections
-    resources :rosters
+    resources :rosters do
+      collection do 
+        post 'checkin' => 'rosters#checkin'
+      end
+    end
     devise_scope :user do
       match '/registrations/create', to: 'registrations#create', via: :post
       match '/registrations/new', to: 'registrations#new', via: :get

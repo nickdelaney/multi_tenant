@@ -17,9 +17,9 @@
 					<td><%= roster.student.try(:birthdate) %></td>
 
 					<td>
-						<%= link_to 'View', admin_roster_path(roster) %> |
-						<%= link_to 'Edit', edit_admin_section_path(roster) %> |
-						<%= link_to 'Destroy', admin_section_path(roster), method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= button_to 'Check-in', {controller: "rosters", action: "checkin", student_id: roster.student.try(:id), section_id: roster.section.try(:id) },
+                                method: :post, data: { confirm: "Are you sure?" }  %>
+						
 					</td>
 				</tr>
 			<% end %>
@@ -28,3 +28,4 @@
 </div>
 
 </div>
+

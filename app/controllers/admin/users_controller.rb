@@ -1,5 +1,8 @@
 class Admin::UsersController < ApplicationController
 	add_breadcrumb "Members", :admin_users_path
+	helper_method :age
+	helper_method :checkin_count
+	helper_method :credit_balance
 	def index
 		@users = User.where(franchise_id: current_franchise, role: 2)
 	end
@@ -15,9 +18,6 @@ class Admin::UsersController < ApplicationController
 	def show
 		add_breadcrumb "Member", :admin_user_path
 		@user = User.find_by(id: params[:id], franchise_id: current_franchise)
-		@students = Student.where(franchise_id: current_franchise, user_id: params[:id])
-		@transactions = Transaction.where(franchise_id: current_franchise, user_id: params[:id])
-		@checkins = Checkin.where(franchise_id: current_franchise, user_id: params[:id])
 		@recurring_payments = AutoBilling.where(franchise_id: current_franchise, user_id: params[:id])
 		@payment_profile = @cim.get_customer_profile(
 				:customer_profile_id => @user.customer_profile_id
@@ -29,6 +29,17 @@ class Admin::UsersController < ApplicationController
 	def user_students
 		@students = Student.where(franchise_id: current_franchise, id: params[:id])
 	end
+
+	def age(dob)
+	  now = Time.now.utc.to_date
+	  now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+	end
+
+	def checkin_count(id)
+		Checkin.where(:student_id => id).count
+	end
+
+	
 
 
 	def newProfile

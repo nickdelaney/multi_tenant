@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :franchise_name
   before_filter :gateway
   helper_method :us_states
+  helper_method :credit_balance
   before_filter :roster_count
   before_filter :current_franchise
   add_breadcrumb "Home", :root_path
@@ -15,6 +16,14 @@ class ApplicationController < ActionController::Base
   	else
   		root_path
   	end
+  end
+
+  def credit_balance(id)
+    @credits = Credit.where(:user_id => id)
+    @credits = @credits.sum(:count)
+    @checkins = Checkin.where(:user_id => id).count
+    @balance = @credits.to_i - @checkins.to_i
+    @balance
   end
 
   def current_franchise

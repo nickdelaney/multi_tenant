@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306011821) do
+ActiveRecord::Schema.define(version: 20150306211733) do
 
   create_table "auto_billings", force: :cascade do |t|
     t.integer  "user_id"
@@ -217,7 +217,7 @@ ActiveRecord::Schema.define(version: 20150306011821) do
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.date     "birthdate"
+    t.string   "birthdate"
     t.integer  "user_id"
     t.integer  "franchise_id"
     t.integer  "preschool_id"
