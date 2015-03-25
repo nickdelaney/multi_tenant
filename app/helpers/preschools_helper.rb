@@ -1,2 +1,0 @@
-module PreschoolsHelper
-end

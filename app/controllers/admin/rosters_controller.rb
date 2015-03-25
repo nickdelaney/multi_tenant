@@ -1,4 +1,4 @@
-class Admin::RostersController < ApplicationController
+class Admin::RostersController < AdminController
 	before_action :find_roster, only:[:show, :edit, :destroy, :update]
 	before_action :check_role
 	before_action :all_rosters, only:[:index]

@@ -1,0 +1,55 @@
+<%= form_for @cart do |f| %>
+<h1>Add credits</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<td>Item</td>
+			<td>Description</td>
+			<td>Unit Cost</td>
+			<td>Min</td>
+			<td>Quantity</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+		<tr>
+			<td>
+				<%= product.name %>
+				<%= f.hidden_field :product_id, value: '1' %>
+			</td>
+			<td><%= product.description %></td>
+			<td>$<span class="cost"><%= product.cost %></span></td>
+			<td>4</td>
+
+			<td><%= f.number_field :quantity, :min => 4,:value => 4, :size => 1,  :class => 'form-control count' %></td>
+		</tr>
+		<% end %>
+		<tr>
+			<td colspan="4">Total</td>
+			<td colspan="1">$<span class="total"></span></td>
+		</tr>
+		
+	</tbody>
+</table>
+<p><%= f.submit 'Add to Cart' %></p>
+
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var quantity = $('.count').val();
+	var cost = $('.cost').text();
+	var total = (quantity * cost).toFixed(2);
+
+	$('.total').text(total);
+});
+
+$('.count').change(function(){
+	var quantity = $('.count').val();
+	var cost = $('.cost').text();
+	var total = (quantity * cost).toFixed(2);
+
+	$('.total').text(total);
+
+});
+</script>

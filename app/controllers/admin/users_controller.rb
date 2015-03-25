@@ -1,8 +1,9 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
 	add_breadcrumb "Members", :admin_users_path
 	helper_method :age
 	helper_method :checkin_count
 	helper_method :credit_balance
+	  before_filter :configure_permitted_parameters, :only => [:update,:edit]
 	def index
 		@users = User.where(franchise_id: current_franchise, role: 2)
 	end

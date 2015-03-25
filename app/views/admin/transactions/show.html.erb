@@ -1,0 +1,23 @@
+<%= page_header "Transaction Details" %>
+<%= page_desc "showing transaction details for transaction #{@transaction.tran_id}" %>
+<%= render  '/layouts/header' %>
+
+<h2>Transaction <%= "##{@transaction.tran_id}" %> </h2>
+<h4>Purchased on <%= @transaction.created_at.to_formatted_s(:long)  %></h4>
+<div class="row">
+	<table class="contact-info">
+					<tr>
+						<td>Transaction #:</td>
+						<td><%= @transaction.tran_id %></td>
+					</tr>
+					<tr>
+						<td>Amount:</td>
+						<td>$<%= @transaction.amount %></td>
+					</tr>
+					<tr>
+						<td>Description:</td>
+						<td><%= @transaction.description %></td>
+					</tr>
+				
+				</table>
+</div>

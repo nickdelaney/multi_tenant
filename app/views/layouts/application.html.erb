@@ -2,165 +2,60 @@
 <html>
   <head>
     <title></title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
 
     <link href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+     <%= stylesheet_link_tag "members/member" %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.js"></script>
   </head>
   <body>
-    <div class="page-container">
-      
-      <div class="sidebar">
-        <div class="sidebar-inner">
-          <header class="logo-cont">
-            <div class="logo">BEEBUS</div>
-            
-            <div class="settings">
-              <i class="fa fa-cog"></i>
-            </div>
-          </header>
+    <header class="header">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">BEEBUS</a>
+           <ul class="nav navbar-nav navbar-right">
+               <% if user_signed_in? %>
+                <li dropdown><a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user" style="margin-right:5px;"></i><%= current_user.first_name %> <span class="caret"></span></a> 
 
-          <ul class="main-menu">
-            <li>
-              <%= link_to(admin_path) do %>
-                <i class="ico fa fa-tachometer"></i>
-                <span class="title">Home</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to(admin_users_path) do %>
-             
-                <i class="ico fa fa-users"></i>
-                <span class="title">Members</span>
-    
-              <% end %>
-            </li>
-            <li>
-              <%= link_to(faculty_admin_users_path) do %>
-                <i class="ico fa fa-users"></i>
-                <span class="title">Faculty</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to(admin_students_path) do %>
-                <i class="ico fa fa-child"></i>
-                <span class="title">Students</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to(admin_buses_path) do %>
-                <i class="ico fa fa-bus"></i>
-                <span class="title">Buses</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to(admin_sections_path) do %>
-                <i class="ico fa fa-archive"></i>
-                <span class="title">Sections</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to(admin_preschools_path) do %>
-                <i class="ico fa fa-archive"></i>
-                <span class="title">Preschools</span>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
+               <ul class="dropdown-menu" role="menu">
+                    <li><%= link_to 'Edit account information', users_edit_path %></li>
+                    <% if current_user.payment_profile_id.blank? %>
+                    <li><%= link_to 'Add Billing Profile', newProfile_path %></li>
+                    <% else %>
+                    <li><%= link_to 'Update Billing Profile', newProfile_path %></li>
+                    <% end %>
 
-      <div class="main-content">
-        
-        <nav class="navbar" role="navigation">
-          <ul class="user-info-menu list-inline pull-left">
-            <li class="dropdown">
-              <a href="#" class="toggle-sidebar">
-                <i class="fa fa-bars"></i>
-              </a>
-            </li>
-            <li>
-              <% if user_signed_in? %>
-              <%= link_to(admin_conversations_path) do %>
-                <i class="fa fa-envelope-o"></i>
-                <% if new_message_count > 0 %>
-                <span class="badge badge-green"><%= new_message_count %></span>
-                <% end %>
-              <% end %>
-              <% end %>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="alerts">
-                <i class="fa fa-bell-o"></i>
-              </a>
-            </li>
-            <li class="dropdown"></li>
-          </ul>
-
-          <ul class="user-info-menu list-inline pull-right">
-            <li>
-              <a href="#">
-                <i class="fa fa-search"></i>
-              </a>
-            </li>
-            <li class="user-profile">
-              <% if user_signed_in? %>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> 
-              <img src="http://themes.laborator.co/xenon/assets/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28"> 
-              <span>Nick Delaney<i class="fa fa-angle-down"></i> </span> </a>
-              <ul class="dropdown-menu user-profile-menu list-unstyled">
-                <li>
-                  <%= link_to "Edit Profile", edit_admin_user_path(current_user) %>
-                  <% end %>
-                </li>
+                    <li><a href="#">Transaction History</a></li>
+                    <li class="divider"></li>
+                    <li><%= link_to 'View all students', students_path %></li>
+                    <li><%= link_to 'Add student', new_student_path %></li>
+                    <li class="divider"></li>
+                     <li><%= link_to 'Purchase Credits', credits_add_path %></li>
+                     <li class="divider"></li>
+                     <li><%= link_to "Log out", destroy_user_session_path, :method => :delete  %></li>
               </ul>
-            </li>
-            <li></li>
-          </ul>
-        </nav>
-        <div class="page-title">
-          <div class="title-cont">
-            <h1 class="title"><%= yield :page_header %></h1>
-            <p class="description"><%= yield :page_desc %></p>
-          </div>
-
-          <div class="breadcrumb-cont">
-            <ol class="breadcrumb">
-              <%= render_breadcrumbs :tag => :li, :separator => "" %>
-            </ol>
-          </div>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="/"><%= current_user.first_name %></a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+              </ul>
+              <% end %>
         </div>
-  <div class="panel panel-default">
-  <div class="panel-body">
-     <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-info" %>
-  <% end %>
-    <%= yield %>  
-  </div>
-</div>
-
-<script type="text/javascript">
-$(document).ready(function(){
-  $('.chosen-it').chosen();
-    $('.datepicker').datepicker({
-      format: 'yyyy-dd-mm'
-    });
-    $('.datatable').DataTable();
-
-        $(".toggle-sidebar").click(function(e) {
-          e.preventDefault();
-          $(".sidebar").toggleClass("collapsed");
-    });
-});
-
-
-  </script>
-</div>
-</div>
-
-</body>
-</html>
+      </nav>
+    </header>
+    <div class="container-fluid">
+     <%= yield %>  
+     </div>
+  </body>

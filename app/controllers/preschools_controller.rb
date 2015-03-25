@@ -1,2 +1,0 @@
-class PreschoolsController < ApplicationController
-end

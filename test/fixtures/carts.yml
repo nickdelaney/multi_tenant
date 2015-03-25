@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  franchise: 
+  user: 
+  product: 
+  quantity: MyString
+
+two:
+  franchise: 
+  user: 
+  product: 
+  quantity: MyString

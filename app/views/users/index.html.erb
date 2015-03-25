@@ -1,0 +1,28 @@
+<h1>My Account</h1>
+
+<h2>Account Settings</h2>
+<ul>
+	<li><%= link_to 'Edit account information', users_edit_path %></li>
+	<% if current_user.payment_profile_id.blank? %>
+	<li><%= link_to 'Add Billing Profile', newProfile_path %></li>
+	<% else %>
+	<li><%= link_to 'Update Billing Profile', newProfile_path %></li>
+	<% end %>
+
+	<li>Transaction History</li>
+</ul>
+
+<h2>My Students</h2>
+<ul>
+	<li><%= link_to 'View all students', students_path %></li>
+	<li><%= link_to 'Add student', new_student_path %></li>
+</ul>
+
+<h2>Credits</h2>
+<ul>
+	<li>Purchase Credits</li>
+	<li>View Credit Balance</l1>
+	<li>Auto-Bill Credits</li>
+	<li>Check-in History</li>
+</ul>
+

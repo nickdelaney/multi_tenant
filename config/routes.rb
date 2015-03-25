@@ -1,9 +1,36 @@
 Rails.application.routes.draw do
 
 
-  root to: "admin/dashboard#index"
+
+devise_for :users
+devise_scope :user do
+  authenticated :user do
+    root 'users#index', as: :authenticated_root
+  end
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+      match '/registrations/create', to: 'registrations#create', via: :post
+      match '/registrations/new', to: 'registrations#new', via: :get
+      match '/users/edit', to: 'registrations#edit', via: :get
+      match '/users', to: 'registrations#create', via: :post
+end
+
+resources :carts
+
+match 'newProfile', to: 'users#newProfile', via: :get
+match 'newProfile', to: 'users#createProfile', via: :post
+match 'editProfile', to: 'users#editProfile', via: :get
+match 'editProfile', to: 'users#updateProfile', via: :post
+
+match '/credits/add', to: 'credits#new', via: :get
+match '/credits/add', to: 'credits#create', via: :post
+
+resources :students
 
   namespace :admin do
+    resources :transactions
+
     match 'payments/newProfile' => 'payments#newProfile', :via => :get
     resources :evaluations
     resources :conversations, only: [:index, :show, :destroy] do
@@ -56,7 +83,7 @@ Rails.application.routes.draw do
 
   
   resources :payments
-  devise_for :users
+
   
 
   

@@ -1,4 +1,4 @@
-class Admin::MessagesController < ApplicationController
+class Admin::MessagesController < AdminController
   before_action :authenticate_user!
   add_breadcrumb "Messages", :admin_conversations_path
   def new

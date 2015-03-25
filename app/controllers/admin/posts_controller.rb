@@ -1,4 +1,4 @@
-class Admin::PostsController < ApplicationController
+class Admin::PostsController < AdminController
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
 	before_action :all_posts, only: [:index]
 

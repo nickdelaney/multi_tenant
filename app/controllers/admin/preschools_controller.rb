@@ -1,4 +1,4 @@
-class Admin::PreschoolsController < ApplicationController
+class Admin::PreschoolsController < AdminController
 	before_action :find_preschool, only:[:show, :edit, :destroy, :update]
 	before_action :check_role
 	#before_action :all_preschools, only:[:index]

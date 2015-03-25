@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306211733) do
+ActiveRecord::Schema.define(version: 20150325171920) do
 
   create_table "auto_billings", force: :cascade do |t|
     t.integer  "user_id"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20150306211733) do
   end
 
   add_index "buses", ["franchise_id"], name: "index_buses_on_franchise_id"
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "franchise_id"
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.string   "quantity"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "checkins", force: :cascade do |t|
     t.integer  "user_id"
@@ -182,6 +191,19 @@ ActiveRecord::Schema.define(version: 20150306211733) do
 
   add_index "preschools", ["franchise_id"], name: "index_preschools_on_franchise_id"
 
+  create_table "products", force: :cascade do |t|
+    t.integer  "franchise_id"
+    t.string   "name"
+    t.string   "cost"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "type_id"
+    t.string   "description"
+  end
+
+  add_index "products", ["franchise_id"], name: "index_products_on_franchise_id"
+  add_index "products", ["type_id"], name: "index_products_on_type_id"
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -241,6 +263,12 @@ ActiveRecord::Schema.define(version: 20150306211733) do
 
   add_index "transactions", ["franchise_id"], name: "index_transactions_on_franchise_id"
   add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

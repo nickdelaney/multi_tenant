@@ -4,13 +4,20 @@ class Admin::RegistrationsController < Devise::RegistrationsController
       prepend_before_filter :require_no_authentication, :only => []
       prepend_before_filter :authenticate_scope!
       add_breadcrumb "Users", :admin_users_path
+      before_filter :configure_permitted_parameters, :only => [:update,:edit]
 	
 
-      def new
+    def new
        add_breadcrumb "New User", :admin_users_path
     	 @user = User.new
 
   	end
+
+    def update
+    end
+
+    def edit
+    end
 
       def create
             @response = @cim.create_customer_profile(

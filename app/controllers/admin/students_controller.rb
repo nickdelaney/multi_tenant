@@ -1,4 +1,4 @@
-class Admin::StudentsController < ApplicationController
+class Admin::StudentsController < AdminController
 	before_action :find_student, only:[:show, :edit, :destroy, :update, :enroll]
 	before_action :all_students, only:[:index]
 	before_action :check_role

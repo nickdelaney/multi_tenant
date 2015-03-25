@@ -8,15 +8,10 @@ class ApplicationController < ActionController::Base
   helper_method :credit_balance
   before_filter :roster_count
   before_filter :current_franchise
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   add_breadcrumb "Home", :root_path
 
-  def after_sign_in_path_for(resource)
-  	if current_user.role == 'admin'
-  		admin_path
-  	else
-  		root_path
-  	end
-  end
+
 
   def credit_balance(id)
     @credits = Credit.where(:user_id => id)
@@ -53,7 +48,7 @@ class ApplicationController < ActionController::Base
 
       end
     else
-      redirect_to new_user_session_path
+     
     end
 
   end
@@ -144,5 +139,11 @@ end
     end
 
 helper_method :new_message_count
+
+protected
+
+        def configure_permitted_parameters
+            devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name,:last_name, :email, :password, :current_password, :address_1, :address_2, :city, :zip, :state) }
+        end
 
 end

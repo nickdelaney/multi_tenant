@@ -1,4 +1,4 @@
-class Admin::PaymentsController < ApplicationController
+class Admin::PaymentsController < AdminController
 
 	def new
 	end

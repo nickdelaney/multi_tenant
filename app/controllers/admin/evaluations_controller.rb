@@ -1,4 +1,4 @@
-class Admin::EvaluationsController < ApplicationController
+class Admin::EvaluationsController < AdminController
 	before_action :find_student, only:[:edit, :destroy, :update, :enroll, :new, :create]
 	before_action :find_evaluation, only: [:edit,:show,:destroy]
 	add_breadcrumb "Students", :admin_students_path

@@ -1,4 +1,4 @@
-class Admin::AutoBillingsController < ApplicationController
+class Admin::AutoBillingsController < AdminController
 	before_action :find_auto_billing, only:[:show, :edit, :destroy, :update]
 
 	def new

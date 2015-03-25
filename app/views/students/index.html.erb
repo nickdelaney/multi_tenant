@@ -1,0 +1,21 @@
+
+<table class="table">
+	<thead>
+	<tr>
+		<td>Name</td>
+		<td>Birthdate</td>
+		<td>Preschool</td>
+		<td></td>
+	</tr>
+	</thead>
+	<tbody>
+	<% @students.each do |student| %>
+		<tr>
+			<td><%= "#{student.first_name} #{student.last_name}" %></td>
+			<td><%= student.birthdate %></td>
+			<td><%= student.preschool.try(:name) %></td>
+			<td><%= link_to 'Edit', edit_student_path(student) %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

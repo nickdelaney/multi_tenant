@@ -1,4 +1,4 @@
-class Admin::SectionsController < ApplicationController
+class Admin::SectionsController < AdminController
 	before_action :find_section, only:[:show, :edit, :destroy, :update]
 	before_action :all_sections, only:[:index]
 	before_action :check_role
