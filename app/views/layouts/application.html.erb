@@ -2,7 +2,8 @@
 <html>
   <head>
     <title></title>
-   
+   <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
 
     <link href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -19,7 +20,7 @@
     <header class="header">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">BEEBUS</a>
+          <a class="navbar-brand" href="/">BEEBUS<sup style="font-size:12px;vertical-align:top;">&#8482;</sup></a>
            <ul class="nav navbar-nav navbar-right">
                <% if user_signed_in? %>
                 <li dropdown><a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user" style="margin-right:5px;"></i><%= current_user.first_name %> <span class="caret"></span></a> 
@@ -65,6 +66,7 @@
         <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: "alert alert-info" %>
   <% end %>
+</div>
      <%= yield %>  
      </div>
   </body>

@@ -1,1 +1,13 @@
-body{background:#F3F3F3;}
+body{background:#F0F3F4;font-family:'Lato';}
+.navbar{min-height:100px;}
+.navbar-default{background:#FFF;padding:0 30px 0 0;}
+.navbar-brand{background:#F8E757;padding:40px 80px;height:100px;color:#fff !important;font-family:'Chewy';font-size:38px;}
+.navbar-default .navbar-brand:hover,.navbar-default .navbar-brand:focus{background:#EDE142 !important;}
+.navbar-nav>li>a {padding:40px 10px !important; color:#8e9aa4 !important;}
+.jumbotron{background:#68CAE3 !important;border-bottom:5px solid #767C91; color:#fff !important;margin-top:-20px;padding:20px;margin-bottom:10px;}
+.jumbotron h1{font-size:28px;}
+
+.panel{border-radius:2px !important;border:0px;}
+.panel-colored{background:#9CF36C;width:100%;font-size:18px;color:#fff;}
+
+.panel-colored h2{font-size:48px;font-weight:bold;color:#fff;font-family:'Chewy';padding:0px;margin:0px;}

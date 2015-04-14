@@ -1,54 +1,77 @@
 
-<h1>My Account</h1>
+
+
+   <div class="container-fluid">
+
+ 		<h1 class="text-left">Welcome back <%= current_user.first_name %></h1>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-colored">
+			  <div class="panel-body">
+			  	<h2><%= @balance %></h2>
+			  	Credits Remaining
+			 </div>
+		</div>
+		</div>
+		<div class="col-md-4">
+				<div class="panel panel-colored">
+				  <div class="panel-body">
+				  	<h2><%= @checkins %></h2>
+				  	Check-ins
+				 </div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel panel-colored">
+				  <div class="panel-body">
+				  	<h2><%= @student_count %></h2>
+				  	Students
+				 </div>
+			</div>
+		</div>
+		</div>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+
+
 <div class="row">
-<div class="col-md-4">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	  	<h2><%= @balance %></h2>
-	  	Credits Remaining
-	 </div>
-</div>
-</div>
-<div class="col-md-4">
-		<div class="panel panel-default">
-		  <div class="panel-body">
-		  	<h2><%= @checkins %></h2>
-		  	Check-ins
-		 </div>
+	<div class="col-md-4">
+		<h2>Account Settings</h2>
+		<ul>
+			<li><%= link_to 'Edit account information', users_edit_path %></li>
+			<% if current_user.payment_profile_id.blank? %>
+			<li><%= link_to 'Add Billing Profile', newProfile_path %></li>
+			<% else %>
+			<li><%= link_to 'Update Billing Profile', newProfile_path %></li>
+			<% end %>
+
+			<li><%= link_to 'Transaction History', transactions_path %></li>
+		</ul>
 	</div>
-</div>
-<div class="col-md-4">
-	<div class="panel panel-default">
-		  <div class="panel-body">
-		  	<h2><%= @student_count %></h2>
-		  	Students
-		 </div>
+
+	<div class="col-md-4">
+		<h2>My Students</h2>
+		<ul>
+			<li><%= link_to 'View all students', students_path %></li>
+			<li><%= link_to 'Add student', new_student_path %></li>
+		</ul>		
 	</div>
+
+	<div class="col-md-4">
+		<h2>Credits</h2>
+		<ul>
+			<li><%= link_to 'Purchase Credits', credits_add_path %></li>
+			<li>Auto-Load Credits</li>
+			<li><%= link_to 'Check-in History', checkins_path %></li>
+		</ul>
+	</div>
+
+</div>
+
+
+
+
+
 </div>
 </div>
-
-<h2>Account Settings</h2>
-<ul>
-	<li><%= link_to 'Edit account information', users_edit_path %></li>
-	<% if current_user.payment_profile_id.blank? %>
-	<li><%= link_to 'Add Billing Profile', newProfile_path %></li>
-	<% else %>
-	<li><%= link_to 'Update Billing Profile', newProfile_path %></li>
-	<% end %>
-
-	<li><%= link_to 'Transaction History', transactions_path %></li>
-</ul>
-
-<h2>My Students</h2>
-<ul>
-	<li><%= link_to 'View all students', students_path %></li>
-	<li><%= link_to 'Add student', new_student_path %></li>
-</ul>
-
-<h2>Credits</h2>
-<ul>
-	<li><%= link_to 'Purchase Credits', credits_add_path %></li>
-	<li>Auto-Load Credits</li>
-	<li><%= link_to 'Check-in History', checkins_path %></li>
-</ul>
-
