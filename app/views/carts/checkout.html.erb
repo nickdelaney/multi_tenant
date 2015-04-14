@@ -1,0 +1,60 @@
+<h1>Checkout</h1>
+<p>How would you like to pay?</p>
+<label for="option">
+<input type="radio" name="account" value="existing" id="register" class="account">
+Use existing billing information
+</label>
+<label for="option">
+<input type="radio" name="account" value="new" id="register" class="account">
+New billing information
+</label>
+
+<div class="confirm" style="display:none;">
+	<table class="table">
+		<table class="table">
+	<thead>
+		<tr>
+			<td>Item Name</td>
+			<td>Description</td>
+			<td>Quantity</td>
+			<td>Price</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @total = Array.new %>
+	<% @cart_items.each do |item| %>
+	<% @item_total = item.quantity.to_i * item.product.try(:cost).to_i
+			@total.push @item_total %>
+		<tr>
+			<td><%= item.product.try(:name) %></td>
+			<td><%= item.product.try(:description) %></td>
+			<td><%= item.quantity %></td>
+			<td>$<%= item.product.try(:cost) %></td>
+		</tr>
+	<% end %>
+	<tr>
+		<td colspan="3">Total:</td>
+		<td colspan="2">$<%= @total.sum %></td>
+	</tr>
+	</tbody>
+</table>
+	</table>
+	<%= link_to 'Confirm', checkoutCart_path, :method=> :get, :class=> 'btn btn-default'%>
+</div>
+<div class="new-info" style="display:none;">
+	New INfo
+</div>
+<script type="text/javascript">
+$('input[name="account"]').change(function(){
+	if($('input[name="account"]:checked').val('existing')){
+		$('.confirm').show();
+		$('.new-info').hide();
+	}else if($('input[name="account"]:checked').val('new')){
+		$('.confirm').hide();
+		$('.new-info').show();
+	}else{
+		$('.confirm').hide();
+		$('.new-info').hide();
+	} 
+});
+</script>

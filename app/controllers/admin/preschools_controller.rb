@@ -35,9 +35,11 @@ class Admin::PreschoolsController < AdminController
 
 	def update
 		if @preschool.update(preschool_params)
-			redirect_to admin_preschools_path(@preschool)
+			redirect_to admin_preschool_path(@preschool)
+			flash[:success] = 'Preschool has been updated!'
 		else
 			render 'edit'
+			flash[:error] = 'Unable to update preschool, please try again!'
 		end
 	end
 

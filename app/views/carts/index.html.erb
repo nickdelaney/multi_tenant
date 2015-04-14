@@ -1,0 +1,34 @@
+<h1>Shopping Cart</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<td>Item Name</td>
+			<td>Description</td>
+			<td>Quantity</td>
+			<td>Price</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @total = Array.new %>
+	
+	<% @cart_items.each do |item| %>
+	<% @item_total = item.quantity.to_i * item.product.try(:cost).to_i
+			@total.push @item_total %>
+		<tr>
+			<td><%= item.product.try(:name) %></td>
+			<td><%= item.product.try(:description) %></td>
+			<td><%= item.quantity %></td>
+			<td>$<%= item.product.try(:cost) %></td>
+			<td><%= button_to "delete", item, :method=>:delete, :class=>:destroy %></td>
+		</tr>
+	<% end %>
+	<tr>
+		<td colspan="3">Total:</td>
+		<td colspan="2">$<%= @total.sum %></td>
+	</tr>
+	</tbody>
+</table>
+<%= link_to 'Checkout', checkout_path ,
+            { :class=>"btn btn-default" }%>
+

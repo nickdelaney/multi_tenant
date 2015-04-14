@@ -19,8 +19,10 @@ class Admin::BusesController < AdminController
 		@bus = Bus.new(bus_params)
 		if @bus.save
 			redirect_to admin_bus_path(@bus)
+			flash[:success] = 'Bus added!'
 		else
 			render 'new'
+			flash[:error] = 'Trouble adding bus, please try again!'
 		end
 	end
 
@@ -35,14 +37,21 @@ class Admin::BusesController < AdminController
 	def update
 		if @bus.update(bus_params)
 			redirect_to admin_bus_path(@bus)
+			flash[:success] = 'Bus updated!'
 		else
 			render 'edit'
+			flash[:error] = 'Unable to update bus, please try again!'
 		end
 	end
 
 	def destroy
-		@bus.destroy
-		redirect_to admin_buses_path
+		if @bus.destroy
+			redirect_to admin_buses_path
+			flash[:success] = 'Bus Removed!'
+		else
+			redirect_to admin_buses_path
+			flash[:error] = 'Unable to remove bus, please try again!'
+		end
 	end
 
 	private

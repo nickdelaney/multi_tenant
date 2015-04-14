@@ -1,23 +1,23 @@
 <%= form_for [:admin , @evaluation] , :html => { :multipart => true } do |f| %>
 	<div class="form-group">
-		<%= f.label :field %>
-		<%= f.select :field, options_for_select([['Good'],['Bad'],['Great']]), {}, {:class => 'form-control'} %>
+		<%= f.label :focus_letter %>
+		<%= f.text_field :focus_letter, {:class => 'form-control'} %>
 	</div>
 
 	<div class="form-group">
-		<%= f.label :field2 %>
-		<%= f.select :field2, options_for_select([['Good'],['Bad'],['Great']]), {},{:class => 'form-control'} %>
+		<%= f.label :behavior %>
+		<%= f.select :behavior, options_for_select([['I need a little work'],['Good'],['Excellent']]), {},{:class => 'form-control'} %>
 	</div>
 
 	<div class="form-group">
-		<%= f.label :field3 %>
-		<%= f.select :field3, options_for_select([['Good'],['Bad'],['Great']]), {},{:class => 'form-control'} %>
+		<%= f.label :comment %>
+		<%= f.text_field :comment, {:class => 'form-control'} %>
 	</div>
 
-	<div class="form-group">
-		<%= f.label :picture %>
-		<%= f.file_field :picture, {:class => 'form-control'} %>
-	</div>
+<%#=	<div class="form-group"> %>
+<%#=		<%= f.label :picture %>
+<%#=		<%= f.file_field :picture, {:class => 'form-control'} %>
+<%#=	</div>  %>
 
 
 

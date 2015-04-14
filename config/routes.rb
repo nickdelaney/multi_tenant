@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+root 'users#index'
 
 devise_for :users
 devise_scope :user do
@@ -17,6 +17,13 @@ devise_scope :user do
 end
 
 resources :carts
+resources :transactions
+resources :checkins
+resources :evaluations
+
+match '/shoppingcart', to: 'carts#index', via: :get
+match '/checkout', to: 'carts#checkout', via: :get
+match '/checkoutCart', to: 'carts#checkoutCart', via: :get
 
 match 'newProfile', to: 'users#newProfile', via: :get
 match 'newProfile', to: 'users#createProfile', via: :post

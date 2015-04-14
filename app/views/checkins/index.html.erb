@@ -1,0 +1,18 @@
+<h1>Check-in History</h1>
+		<table class="transactions" width="100%">
+			<thead>
+				<tr>
+					<td>Name</td>
+					<td>Section</td>
+					<td>Time</td>
+				
+				</tr>
+			</thead>
+			<% @checkins.each do |checkin| %>
+				<tr>
+					<td><%= "#{checkin.student.try(:first_name)} #{checkin.student.try(:last_name)}" %></td>
+					<td><%= checkin.section.try(:name) %></td>
+					<td><%= checkin.created_at %></td>
+				</tr>
+				<% end %>
+		</table>

@@ -1,0 +1,23 @@
+<h1>Evaluation for <%= "#{@evaluation.student.try(:first_name)}" %></h1>
+<table class="table">
+	<thead>
+		<tr>
+			<td>Date</td>
+			<td><%= @evaluation.created_at %></td>
+		</tr>
+	<tr>
+		<td>This week's Letter:</td>
+		<td><%= @evaluation.focus_letter %></td>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Behaviour:</td>
+		<td><%= @evaluation.behavior %></td>
+	</tr>
+	<tr>
+		<td>Comments:</td>
+		<td><%= @evaluation.comment %></td>
+	</tr>
+	</tbody>
+</table>

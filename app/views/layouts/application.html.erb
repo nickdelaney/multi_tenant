@@ -32,30 +32,39 @@
                     <li><%= link_to 'Update Billing Profile', newProfile_path %></li>
                     <% end %>
 
-                    <li><a href="#">Transaction History</a></li>
+                    <li><%= link_to 'Transaction History', transactions_path %></li>
                     <li class="divider"></li>
                     <li><%= link_to 'View all students', students_path %></li>
                     <li><%= link_to 'Add student', new_student_path %></li>
                     <li class="divider"></li>
                      <li><%= link_to 'Purchase Credits', credits_add_path %></li>
+                     <li><%= link_to 'Check-in History', checkins_path %></li>
                      <li class="divider"></li>
                      <li><%= link_to "Log out", destroy_user_session_path, :method => :delete  %></li>
               </ul>
                 </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart"></i> Cart(<%= @item_count %>) <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="/"><%= current_user.first_name %></a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <% @cart_items.each do |item| %>
+                    <li><a href="#"><%= item.quantity %> x <%= item.product.try(:name) %>(s)</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <% end %>
+                    <% if @item_count == '0' %>
+                    <li><a href="#">Cart is empty!</a></li>
+                    <% else %>
+                   <li><%= link_to 'Modify Cart', shoppingcart_path %></li>
+                   <li><%= link_to 'Checkout', shoppingcart_path %></li>
+                   <% end %>
               </ul>
               <% end %>
         </div>
       </nav>
     </header>
     <div class="container-fluid">
+        <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
      <%= yield %>  
      </div>
   </body>

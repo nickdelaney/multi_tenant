@@ -1,0 +1,19 @@
+<h1>Transaction History</h1>
+<table class="table" width="100%">
+			<thead>
+				<tr>
+					<td>Transaction ID</td>
+					<td>Amount</td>
+					<td>Description</td>
+					<td>Posted at</td>
+				</tr>
+			</thead>
+			<% @transactions.each do |transaction| %>
+				<tr>
+					<td><%= transaction.tran_id %></td>
+					<td>$<%= transaction.amount %></td>
+					<td><%= transaction.description%></td>
+					<td><%= transaction.created_at%></td>
+				</tr>
+				<% end %>
+		</table>

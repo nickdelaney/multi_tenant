@@ -22,10 +22,31 @@ class Admin::EvaluationsController < AdminController
 		end
 	end
 
+	def edit
+	end
+
+	def update
+		if @evaluation.update(evaluation_params)
+			redirect_to admin_evaluation_path(@evaluation)
+			flash[:success] = 'Evaluation Updated!'
+		else
+			render 'edit'
+			flash[:error] = 'Trouble updating evaluation, please try again.'
+		end
+	end
+
 	def show
 	end
 
 	def destroy
+		@student = @evaluation.student_id
+		if @evaluation.destroy
+			redirect_to admin_student_path(@student)
+			flash[:success] = 'Evaluation Removed'
+		else
+			redirect_to admin_student_path(@student)
+			flash[:success] = 'Trouble removing evaluation, please try again!'
+		end
 	end
 
 	private
@@ -43,7 +64,7 @@ class Admin::EvaluationsController < AdminController
 	end
 
 	def evaluation_params
-		params.require(:evaluation).permit(:field, :field2, :field3,:student_id, :user_id, :picture).merge(franchise_id: current_franchise)
+		params.require(:evaluation).permit(:behavior, :focus_letter, :comment,:student_id, :user_id, :picture).merge(franchise_id: current_franchise)
 	end
 
 end

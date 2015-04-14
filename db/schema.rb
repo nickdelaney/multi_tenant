@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325171920) do
+ActiveRecord::Schema.define(version: 20150325200810) do
 
   create_table "auto_billings", force: :cascade do |t|
     t.integer  "user_id"
@@ -84,6 +84,9 @@ ActiveRecord::Schema.define(version: 20150325171920) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_uploaded_at"
+    t.string   "focus_letter"
+    t.string   "behavior"
+    t.string   "comment"
   end
 
   add_index "evaluations", ["franchise_id"], name: "index_evaluations_on_franchise_id"

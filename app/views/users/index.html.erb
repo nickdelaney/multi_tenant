@@ -1,4 +1,31 @@
+
 <h1>My Account</h1>
+<div class="row">
+<div class="col-md-4">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	  	<h2><%= @balance %></h2>
+	  	Credits Remaining
+	 </div>
+</div>
+</div>
+<div class="col-md-4">
+		<div class="panel panel-default">
+		  <div class="panel-body">
+		  	<h2><%= @checkins %></h2>
+		  	Check-ins
+		 </div>
+	</div>
+</div>
+<div class="col-md-4">
+	<div class="panel panel-default">
+		  <div class="panel-body">
+		  	<h2><%= @student_count %></h2>
+		  	Students
+		 </div>
+	</div>
+</div>
+</div>
 
 <h2>Account Settings</h2>
 <ul>
@@ -9,7 +36,7 @@
 	<li><%= link_to 'Update Billing Profile', newProfile_path %></li>
 	<% end %>
 
-	<li>Transaction History</li>
+	<li><%= link_to 'Transaction History', transactions_path %></li>
 </ul>
 
 <h2>My Students</h2>
@@ -20,9 +47,8 @@
 
 <h2>Credits</h2>
 <ul>
-	<li>Purchase Credits</li>
-	<li>View Credit Balance</l1>
-	<li>Auto-Bill Credits</li>
-	<li>Check-in History</li>
+	<li><%= link_to 'Purchase Credits', credits_add_path %></li>
+	<li>Auto-Load Credits</li>
+	<li><%= link_to 'Check-in History', checkins_path %></li>
 </ul>
 

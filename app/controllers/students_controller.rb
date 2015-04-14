@@ -33,8 +33,10 @@ class StudentsController < ApplicationController
 
 
 
-
 	def show
+		@student = Student.find_by(id: params[:id], user_id: current_user.id)
+		@checkins = Checkin.where(student_id: params[:id])
+		@evaluations = Evaluation.where(student_id: params[:id])
 	end
 
 private

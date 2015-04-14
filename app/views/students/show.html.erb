@@ -1,0 +1,27 @@
+<h1><%= "#{@student.first_name} #{@student.last_name}" %></h1>
+<h2>Check-in History</h2>
+<table class="table table-condensed">
+	<thead>
+				<tr>
+					<td>Name</td>
+					<td>Section</td>
+					<td>Time</td>
+				
+				</tr>
+			</thead>
+			<% @checkins.each do |checkin| %>
+				<tr>
+					<td><%= "#{checkin.student.try(:first_name)} #{checkin.student.try(:last_name)}" %></td>
+					<td><%= checkin.section.try(:name) %></td>
+					<td><%= checkin.created_at %></td>
+				</tr>
+				<% end %>
+		</table>
+</table>
+
+<h2>Evaluations</h2>
+<ul class="evaluations" style="list-style:none;">
+			<% @evaluations.each do |eval| %>
+			<li><%= link_to "Evaluation For #{eval.created_at.to_formatted_s(:long_ordinal)}", evaluation_path(eval) %></li>
+			<% end %>
+		</ul>

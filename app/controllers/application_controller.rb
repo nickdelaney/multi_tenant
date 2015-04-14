@@ -6,8 +6,11 @@ class ApplicationController < ActionController::Base
   before_filter :gateway
   helper_method :us_states
   helper_method :credit_balance
+  helper_method :checkin_count
   before_filter :roster_count
   before_filter :current_franchise
+  before_filter :get_cart
+  before_filter :get_credit_balance
   before_filter :configure_permitted_parameters, if: :devise_controller?
   add_breadcrumb "Home", :root_path
 
@@ -21,11 +24,35 @@ class ApplicationController < ActionController::Base
     @balance
   end
 
+  def checkin_count(id)
+    Checkin.where(:student_id => id).count
+  end
+
+
   def current_franchise
     if user_signed_in?
   	   current_franchise = current_user.franchise_id
      end
   end
+
+  def get_cart
+    if user_signed_in?
+      @cart_items = Cart.where(user_id: current_user.id)
+      @item_count = Cart.where(user_id: current_user.id).sum(:quantity)
+    end
+  end
+
+  def get_credit_balance
+    if user_signed_in?
+      @credits = Credit.where(:user_id => current_user.id)
+      @student_count = Student.where(:user_id => current_user.id).count
+      @credits = @credits.sum(:count)
+      @checkins = Checkin.where(:user_id => current_user.id).count
+      @balance = @credits.to_i - @checkins.to_i
+      @balance
+    end
+  end
+
 
   def franchise_name
       if user_signed_in?
