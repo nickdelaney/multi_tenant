@@ -15,9 +15,11 @@ class Admin::StudentsController < AdminController
 		@student = Student.new(student_params)
 		@user = params[:user_id]
 		if @student.save
-			redirect_to admin_user_path(@student.user_id)
+			redirect_to admin_student_path(@student)
+			flash[:success] = "Successfully created #{@student.first_name}"
 		else
 			render 'new'
+			flash[:error] = 'There was a problem adding the new student, please try again.'
 		end
 	end
 
@@ -27,8 +29,15 @@ class Admin::StudentsController < AdminController
 	end
 
 	def destroy
-		@student.destroy
-		redirect_to admin_users_path
+		@student = Student.find(params[:id])
+		@user_id = @student.user_id
+		if @student.destroy
+			redirect_to admin_user_path(@user_id)
+			flash[:success] = "Succesfully removed student"
+		else
+			redirect_to admin_user_path(@user)
+			flash[:error] = "There was a problem removing the student, please try again."
+		end
 	end
 
 	def section

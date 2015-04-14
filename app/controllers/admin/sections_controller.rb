@@ -15,8 +15,10 @@ class Admin::SectionsController < AdminController
 		@section = Section.new(section_params)
 		if @section.save
 			redirect_to admin_section_path(@section)
+			flash[:success] = 'Successfully created new section!'
 		else
 			render 'new'
+			flash[:error] = 'There was a problem creating the section, please try again.'
 		end
 	end
 
@@ -31,14 +33,21 @@ class Admin::SectionsController < AdminController
 	def update
 		if @section.update(section_params)
 			redirect_to admin_section_path(@section)
+			flash[:success] = 'Successfully updated the section!'
 		else
 			render 'edit'
+			flash[:error] = 'There was a problem updating the section, please try again.'
 		end
 	end
 
 	def destroy
-		@section.destroy
-		redirect_to admin_sections_path
+		if @section.destroy
+			redirect_to admin_sections_path
+			flash[:success] = 'Successfully removed the section!'
+		else
+			redirect_to admin_sections_path
+			flash[:error] = 'There was a problem removing the section, please try again.'
+		end
 	end
 
 

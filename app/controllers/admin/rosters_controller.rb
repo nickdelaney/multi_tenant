@@ -9,17 +9,9 @@ class Admin::RostersController < AdminController
 	def show
 		add_breadcrumb "Section Roster", :admin_roster_path
 	end
-
-	def edit
-	end
-
-	def enroll
-	end
-
-
+	
 
 	def checkin
-		
 		@checked_in = Checkin.where('created_at BETWEEN ? AND ? AND student_id = ?', DateTime.now.beginning_of_day,DateTime.now.end_of_day, params[:student_id])
 		@student = Student.find(params[:student_id])
 		@name = "#{@student.first_name} #{@student.last_name}"
@@ -40,10 +32,12 @@ class Admin::RostersController < AdminController
 				 	else
 				 		flash[:notice] = "#{@name} has no credits remaining!"
 				 		redirect_to request.referer
-				 
 
 		 	end
 		 end
+	end
+
+	def edit
 	end
 
 	def update
