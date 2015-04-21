@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
   <head>
     <title></title>
    <link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
@@ -79,8 +79,28 @@
        </div>
      </div>
      <script type="text/javascript">
-     $(document).ready(function(){
-      $('body').fadeIn('fast');
-     });
+     document.documentElement.className = document.documentElement.className.replace('no-js','js');
+     $('.main').slideDown(400);
+       $('.js .stat').each(function(){
+    var minSpeed = 100;
+    var Speed = parseInt(minSpeed + Math.random()*1200)
+    $(this).fadeIn(Speed);
+  });
+
+
+
+
+$( window ).unload(function() {
+  $('.main').slideUp({easing: 'easeOutExpo'},700, function(){
+  $('.js .stat').each(function(){
+    var minSpeed = 300;
+    var Speed = parseInt(minSpeed + Math.random()*1000, 10)
+    $(this).fadeIn(Speed);
+  });
+
+
+  });
+
+});
    </script>
   </body>
