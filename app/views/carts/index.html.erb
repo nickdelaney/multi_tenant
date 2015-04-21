@@ -1,5 +1,9 @@
-<h1>Shopping Cart</h1>
-<table class="table">
+<div class="panel">
+	<div class="panel-heading">
+		<h2>Shopping Cart</h2>
+	</div>
+	<div class="panel-body">
+		<table class="table">
 	<thead>
 		<tr>
 			<td>Item Name</td>
@@ -13,13 +17,29 @@
 		<% @total = Array.new %>
 	
 	<% @cart_items.each do |item| %>
-	<% @item_total = item.quantity.to_i * item.product.try(:cost).to_i
-			@total.push @item_total %>
 		<tr>
 			<td><%= item.product.try(:name) %></td>
 			<td><%= item.product.try(:description) %></td>
 			<td><%= item.quantity %></td>
-			<td>$<%= item.product.try(:cost) %></td>
+				<% 
+			case item.quantity 
+			when '1'
+				@cost = '12'
+			when '2'
+				@cost = '12'
+			when '3'
+				@cost = '12'
+			when '4'
+				@cost = '10'
+			else
+				@cost = '10'
+			end
+
+			@item_total = item.quantity.to_i * @cost.to_i
+			@total.push @item_total
+
+			%>
+			<td>$<%= @cost %></td>
 			<td><%= button_to "delete", item, :method=>:delete, :class=>:destroy %></td>
 		</tr>
 	<% end %>
@@ -31,4 +51,7 @@
 </table>
 <%= link_to 'Checkout', checkout_path ,
             { :class=>"btn btn-default" }%>
+	</div>
+</div>
+
 

@@ -1,5 +1,9 @@
-<h1>Checkout</h1>
-<p>How would you like to pay?</p>
+<div class="panel">
+	<div class="panel-heading">
+		<h2>Checkout</h2>
+	</div>
+	<div class="panel-body">
+		<p>How would you like to pay?</p>
 <label for="option">
 <input type="radio" name="account" value="existing" id="register" class="account">
 Use existing billing information
@@ -23,13 +27,29 @@ New billing information
 	<tbody>
 		<% @total = Array.new %>
 	<% @cart_items.each do |item| %>
-	<% @item_total = item.quantity.to_i * item.product.try(:cost).to_i
-			@total.push @item_total %>
 		<tr>
 			<td><%= item.product.try(:name) %></td>
 			<td><%= item.product.try(:description) %></td>
 			<td><%= item.quantity %></td>
-			<td>$<%= item.product.try(:cost) %></td>
+			<% 
+			case item.quantity 
+			when '1'
+				@cost = '12'
+			when '2'
+				@cost = '12'
+			when '3'
+				@cost = '12'
+			when '4'
+				@cost = '10'
+			else
+				@cost = '10'
+			end
+
+			@item_total = item.quantity.to_i * @cost.to_i
+			@total.push @item_total
+
+			%>
+			<td>$<%= @cost %></td>
 		</tr>
 	<% end %>
 	<tr>
@@ -46,15 +66,16 @@ New billing information
 </div>
 <script type="text/javascript">
 $('input[name="account"]').change(function(){
-	if($('input[name="account"]:checked').val('existing')){
+	if($('input[name="account"]:checked').val() == 'existing'){
 		$('.confirm').show();
 		$('.new-info').hide();
-	}else if($('input[name="account"]:checked').val('new')){
-		$('.confirm').hide();
-		$('.new-info').show();
+	}else if($('input[name="account"]:checked').val() == 'new'){
+		window.location.href = '/newProfile'
 	}else{
 		$('.confirm').hide();
 		$('.new-info').hide();
 	} 
 });
 </script>
+	</div>
+</div>

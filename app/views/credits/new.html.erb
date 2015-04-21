@@ -1,5 +1,9 @@
-<%= form_for @cart, :url => carts_path do |f| %>
-<h1>Add credits</h1>
+<div class="panel">
+	<div class="panel-heading">
+    	<h2 class="">Purchase Credits</h2>
+  </div>	
+	<div class="panel-body">
+		<%= form_for @cart, :url => carts_path do |f| %>
 <table class="table">
 	<thead>
 		<tr>
@@ -19,9 +23,9 @@
 			</td>
 			<td><%= product.description %></td>
 			<td>$<span class="cost"><%= product.cost %></span></td>
-			<td>4</td>
+			<td>1</td>
 
-			<td><%= f.number_field :quantity, :min => 4,:value => 4, :size => 1,  :class => 'form-control count' %></td>
+			<td><%= f.number_field :quantity, :min => 1,:value => 4, :size => 1,  :class => 'form-control count' %></td>
 		</tr>
 		<% end %>
 		<tr>
@@ -41,15 +45,37 @@ $(document).ready(function(){
 	var cost = $('.cost').text();
 	var total = (quantity * cost).toFixed(2);
 
+	$('.count').change(function(){
+		switch($('.count').val()){
+		case '1':
+			$('.cost').text('12');
+			break;
+		case '2':
+			$('.cost').text('12');
+			break;
+		case '3':
+			$('.cost').text('12');
+			break;
+		case '4':
+			$('.cost').text('10');
+			break;	
+		default:
+			$('.cost').text('10');	
+		}
+		updateCost();
+
+	});
+
 	$('.total').text(total);
 });
 
-$('.count').change(function(){
+function updateCost(){
 	var quantity = $('.count').val();
 	var cost = $('.cost').text();
 	var total = (quantity * cost).toFixed(2);
-
 	$('.total').text(total);
+}
 
-});
 </script>
+	</div>
+</div>

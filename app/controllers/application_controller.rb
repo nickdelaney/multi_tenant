@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_action :authenticate_user!
   protect_from_forgery with: :null_session
   before_filter :franchise_name
   before_filter :gateway
@@ -15,6 +16,12 @@ class ApplicationController < ActionController::Base
   add_breadcrumb "Home", :root_path
 
 
+  def index
+    if user_signed_in?
+      redirect_to users_path
+    end
+
+  end
 
   def credit_balance(id)
     @credits = Credit.where(:user_id => id)
@@ -67,18 +74,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def check_role
-    if user_signed_in?
-      if current_user.role.name != 'admin'
-            redirect_to new_user_session_path
-      else
-
-      end
-    else
-     
-    end
-
-  end
+ 
 
   rescue_from ActiveRecord::RecordNotFound do
   flash[:warning] = 'Resource not found.'

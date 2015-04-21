@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-root 'users#index'
 
 devise_for :users
 devise_scope :user do
+  get '/logout',  :to => 'devise/sessions#destroy'
   authenticated :user do
-    root 'users#index', as: :authenticated_root
+    root 'users#index'
   end
   unauthenticated do
     root 'devise/sessions#new', as: :unauthenticated_root
@@ -15,11 +15,12 @@ devise_scope :user do
       match '/users/edit', to: 'registrations#edit', via: :get
       match '/users', to: 'registrations#create', via: :post
 end
-
+resources 'users'
 resources :carts
 resources :transactions
 resources :checkins
 resources :evaluations
+resources :auto_billings
 
 match '/shoppingcart', to: 'carts#index', via: :get
 match '/checkout', to: 'carts#checkout', via: :get

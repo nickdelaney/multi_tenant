@@ -1,31 +1,46 @@
 
 
 
-   <div class="container-fluid">
 
- 		<h1 class="text-left">Welcome back <%= current_user.first_name %></h1>
-	<div class="row">
+ 		
+	<div class="row stats">
 		<div class="col-md-4">
 			<div class="panel panel-colored">
 			  <div class="panel-body">
+			  	<div class="col-sm-2">
+			  		<i class="fa fa-money"></i>
+			  	</div>
+			  	<div class="col-sm-10">
 			  	<h2><%= @balance %></h2>
 			  	Credits Remaining
+			  	</div>
 			 </div>
 		</div>
 		</div>
 		<div class="col-md-4">
 				<div class="panel panel-colored">
 				  <div class="panel-body">
-				  	<h2><%= @checkins %></h2>
+				  	<div class="col-sm-2">
+				  		<i class="fa fa-check"></i>
+				  	</div>
+				  	<div class="col-sm-10">
+				  		<h2><%= @checkins %></h2>
 				  	Check-ins
+				  	</div>
+				  	
 				 </div>
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="panel panel-colored">
 				  <div class="panel-body">
+				  <div class="col-sm-1">
+					<i class="fa fa-child"></i>
+				</div>
+				<div class="col-sm-10">
 				  	<h2><%= @student_count %></h2>
-				  	Students
+				  	Children
+				 </div>
 				 </div>
 			</div>
 		</div>
@@ -35,43 +50,56 @@
 	<div class="panel-body">
 
 
-<div class="row">
+<div class="row dashboard">
 	<div class="col-md-4">
 		<h2>Account Settings</h2>
 		<ul>
-			<li><%= link_to 'Edit account information', users_edit_path %></li>
+			<li><i class="fa fa-user col-sm-1"></i><%= link_to 'Edit account information', users_edit_path, class: 'col-sm-10' %></li>
 			<% if current_user.payment_profile_id.blank? %>
-			<li><%= link_to 'Add Billing Profile', newProfile_path %></li>
+			<li><i class="fa fa-credit-card col-sm-1"></i><%= link_to 'Add Billing Profile', newProfile_path, class: 'col-sm-10' %></li>
 			<% else %>
-			<li><%= link_to 'Update Billing Profile', newProfile_path %></li>
+			<li><i class="fa fa-credit-card col-sm-1"></i><%= link_to 'Update Billing Profile', newProfile_path, class: 'col-sm-10' %></li>
 			<% end %>
 
-			<li><%= link_to 'Transaction History', transactions_path %></li>
+			<li><i class="fa fa-history col-sm-1"></i><%= link_to 'Transaction History', transactions_path, class: 'col-sm-10' %></li>
 		</ul>
 	</div>
 
 	<div class="col-md-4">
-		<h2>My Students</h2>
+		<h2>My Children</h2>
 		<ul>
-			<li><%= link_to 'View all students', students_path %></li>
-			<li><%= link_to 'Add student', new_student_path %></li>
+			<li><i class="fa fa-child col-sm-1"></i><%= link_to 'View all children', students_path, class: 'col-sm-10' %></li>
+			<li><i class="fa fa-user-plus col-sm-1"></i><%= link_to 'Add child', new_student_path, class: 'col-sm-10' %></li>
 		</ul>		
 	</div>
 
 	<div class="col-md-4">
 		<h2>Credits</h2>
 		<ul>
-			<li><%= link_to 'Purchase Credits', credits_add_path %></li>
-			<li>Auto-Load Credits</li>
-			<li><%= link_to 'Check-in History', checkins_path %></li>
+			<li><i class="fa fa-money col-sm-1"></i><%= link_to 'Purchase Credits', credits_add_path, class: 'col-sm-10' %></li>
+			<li><i class="fa fa-refresh col-sm-1"></i><%= link_to 'New Recurring Payment', new_auto_billing_path, class: 'col-sm-10' %></li>
+			<li><i class="fa fa-reply col-sm-1"></i><%= link_to 'Check-in History', checkins_path, class: 'col-sm-10' %></li>
 		</ul>
 	</div>
 
 </div>
 
+<div class="divider"></div>
 
-
-
-
+<h2>Activity Feed</h2>
+<table class="table activity">
+	<tr>
+		<td width="1%"><i class="fa fa-check"></i></td>
+		<td>Bobby checked in</td>
+		<td>24 min ago</td>
+	</tr>
+	<tr>
+		<td><i class="fa fa-money"></i></td>
+		<td>Added 4 credits to account</td>
+		<td>1 hour ago</td>
+	</tr>
+</table>
 </div>
-</div>
+
+
+

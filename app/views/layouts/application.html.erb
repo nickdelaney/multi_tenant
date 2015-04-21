@@ -18,12 +18,12 @@
   </head>
   <body>
     <header class="header">
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">BEEBUS<sup style="font-size:12px;vertical-align:top;">&#8482;</sup></a>
            <ul class="nav navbar-nav navbar-right">
                <% if user_signed_in? %>
-                <li dropdown><a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user" style="margin-right:5px;"></i><%= current_user.first_name %> <span class="caret"></span></a> 
+                <li dropdown><a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user" style="color:#02DBE5;"></i><%= current_user.first_name %> <span class="caret"></span></a> 
 
                <ul class="dropdown-menu" role="menu">
                     <li><%= link_to 'Edit account information', users_edit_path %></li>
@@ -41,11 +41,11 @@
                      <li><%= link_to 'Purchase Credits', credits_add_path %></li>
                      <li><%= link_to 'Check-in History', checkins_path %></li>
                      <li class="divider"></li>
-                     <li><%= link_to "Log out", destroy_user_session_path, :method => :delete  %></li>
+                     <li><%= link_to "Log out", logout_path  %></li>
               </ul>
                 </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart"></i> Cart(<%= @item_count %>) <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-shopping-cart" style="color:##5FDF78;"></i> Cart(<%= @item_count %>) <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <% @cart_items.each do |item| %>
                     <li><a href="#"><%= item.quantity %> x <%= item.product.try(:name) %>(s)</a></li>
@@ -62,11 +62,25 @@
         </div>
       </nav>
     </header>
+    <div class="main">
     <div class="container-fluid">
         <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-info" %>
+    <%= content_tag :div, msg, class: "alert alert-info #{name}" %>
   <% end %>
-</div>
+
      <%= yield %>  
      </div>
+     </div>
+     
+     </div>
+     <div class="footer">
+       <div class="container-fluid">
+         <p class="muted">Copyright 2015 Beebus</p>
+       </div>
+     </div>
+     <script type="text/javascript">
+     $(document).ready(function(){
+      $('body').fadeIn('fast');
+     });
+   </script>
   </body>

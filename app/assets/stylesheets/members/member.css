@@ -1,13 +1,31 @@
-body{background:#F0F3F4;font-family:'Lato';}
-.navbar{min-height:100px;}
+body{background:#23726F;font-family:'Lato';color:#677A7F;letter-spacing:1px;height:100%;display:block;margin-bottom:30px;}
+.navbar{min-height:100px;max-height:101px;oveflow:hidden;}
 .navbar-default{background:#FFF;padding:0 30px 0 0;}
+.navbar .fa{margin-right:30px;font-size:20px;}
 .navbar-brand{background:#F8E757;padding:40px 80px;height:100px;color:#fff !important;font-family:'Chewy';font-size:38px;}
 .navbar-default .navbar-brand:hover,.navbar-default .navbar-brand:focus{background:#EDE142 !important;}
-.navbar-nav>li>a {padding:40px 10px !important; color:#8e9aa4 !important;}
+.navbar-nav>li>a {padding:40px 10px !important; color:#8e9aa4 !important;letter-spacing:1px;}
 .jumbotron{background:#68CAE3 !important;border-bottom:5px solid #767C91; color:#fff !important;margin-top:-20px;padding:20px;margin-bottom:10px;}
 .jumbotron h1{font-size:28px;}
 
 .panel{border-radius:2px !important;border:0px;}
-.panel-colored{background:#9CF36C;width:100%;font-size:18px;color:#fff;}
+.panel-colored{background:#5FDF78;width:100%;font-size:18px;color:#fff;}
 
 .panel-colored h2{font-size:48px;font-weight:bold;color:#fff;font-family:'Chewy';padding:0px;margin:0px;}
+
+
+.form-group{height:40px;}
+label{font-weight:400;}
+
+.panel h2{font-weight:800;letter-spacing:1px;text-transform:uppercase;margin:0 0 10px 0;}
+.panel-heading{background-color:#02DBE5!important;color:#fff !important;padding:15px 30px;}
+
+.dashboard ul{list-style:none;padding:0;margin:0;}
+.dashboard li{background:#02DBE5;padding:20px;margin-bottom:1px;overflow:auto;font-size:14px;}
+.dashboard li .fa{color:#fff;}
+.dashboard li a:visited, .dashboard li a:hover{color:#fff;}
+.main{margin-top:120px;margin-bottom:30px;}
+.error{color: #a94442;background-color: #f2dede;border-color: #ebccd1;}
+.divider{border:1px dotted #ccc;margin-top:30px;margin-bottom:30px;}
+.footer{background:#5FDF78;color:#fff;height:40px;padding:10px;position:fixed;bottom:0;width:100%;}
+.stats .fa{font-size:40px;padding-top:20px;}

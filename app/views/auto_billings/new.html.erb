@@ -1,0 +1,38 @@
+<div class="panel">
+	<div class="panel-heading">
+		<h2>New Recurring Payment</h2>
+	</div>
+	<div class="panel-body">
+		<p>I <b><%= current_user.first_name %> <%= current_user.last_name %></b> Austin butcher mumblecore, seitan occupy raw denim listicle organic Godard. You probably haven't heard of them wayfarers salvia cold-pressed whatever cray. Lomo hoodie Intelligentsia artisan asymmetrical pour-over street art trust fund XOXO, wayfarers sustainable. Post-ironic pickled Etsy Kickstarter lumbersexual, PBR&B Helvetica readymade gluten-free master cleanse literally Shoreditch. Single-origin coffee tattooed leggings, tofu drinking vinegar keffiyeh you probably haven't heard of them four loko readymade meditation XOXO High Life yr. Bitters banh mi McSweeney's, trust fund sartorial Wes Anderson skateboard slow-carb chillwave cray XOXO sriracha 8-bit. Cold-pressed umami try-hard semiotics Portland, PBR&B street art typewriter four dollar toast.
+</p>
+<p>
+Banjo organic Echo Park leggings selfies photo booth, irony authentic Kickstarter drinking vinegar health goth hella. Photo booth deep v four loko Wes Anderson, fixie chambray 8-bit kitsch normcore street art hella. Tofu try-hard selvage butcher meditation, 90's XOXO beard flannel cliche art party messenger bag. Tofu Odd Future hoodie synth, listicle DIY sriracha. Shoreditch typewriter deep v aesthetic, narwhal twee master cleanse lumbersexual Etsy pickled dreamcatcher. Fashion axe four loko stumptown artisan. Tote bag flexitarian pop-up retro keffiyeh, Kickstarter twee actually wayfarers four dollar toast swag kale chips cold-pressed chillwave vinyl.
+</p>
+<p>
+Food truck 90's four dollar toast ugh pour-over, next level lumbersexual 3 wolf moon chambray master cleanse ethical. Hoodie lo-fi skateboard, Thundercats mixtape small batch iPhone Vice Banksy craft beer. Kale chips artisan fashion axe, Portland fap retro four loko wayfarers polaroid 8-bit Pinterest iPhone migas street art. Next level High Life trust fund pork belly gluten-free, Shoreditch Marfa tousled pour-over migas asymmetrical. Ethical Pinterest fingerstache deep v. Marfa lomo pork belly, Pinterest messenger bag narwhal slow-carb pour-over tattooed chia paleo tote bag typewriter irony. Fingerstache plaid Blue Bottle tote bag selvage selfies flannel semiotics.
+</p>
+<div class="divider"></div>
+<%= form_for @auto_billing do |f| %>
+<div class="form-group">
+<%= f.label :credits, 'Quantity:', class: 'label-control col-sm-1' %>
+<div class="col-sm-4">
+	<%= f.number_field :credits, :min => 1,:value => 4, :size => 1,  :class => 'form-control count' %>
+</div>
+</div>
+	<div class="form-group" style="padding-left:15px;">
+		<p>I <b><%= current_user.first_name %> <%= current_user.last_name %></b>, certify BEEBUS to bill my account every 4 weeks beginning <strong><%= Time.now.strftime("%B %d, %Y") %></strong> for <span class="credits" style="font-weight:bold;"></span>  credits</p>
+		<%= f.submit 'I Agree', :class => 'btn btn-default' %>
+	</div>	
+<% end %>
+
+	</div>
+</div>
+<script type="text/javascript">
+	function quantity(){
+		var quantity = $('.count').val();
+		$('.credits').text(quantity);
+	}
+	$('.count').change(quantity);
+	$(document).ready(quantity);
+
+</script>

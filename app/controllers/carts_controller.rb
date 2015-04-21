@@ -57,7 +57,7 @@ class CartsController < ApplicationController
 					@transaction.save
 					if @credits.save
 						flash[:notice] = "Credits added!"
-						redirect_to authenticated_root_path
+						redirect_to root_path
 						Cart.destroy_all(:user_id => current_user.id)
 					else
 						flash[:notice] = "There was an error with the purchase"
