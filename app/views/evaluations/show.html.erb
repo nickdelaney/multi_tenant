@@ -1,23 +1,70 @@
-<h1>Evaluation for <%= "#{@evaluation.student.try(:first_name)}" %></h1>
-<table class="table">
-	<thead>
-		<tr>
-			<td>Date</td>
-			<td><%= @evaluation.created_at %></td>
-		</tr>
-	<tr>
-		<td>This week's Letter:</td>
-		<td><%= @evaluation.focus_letter %></td>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td>Behaviour:</td>
-		<td><%= @evaluation.behavior %></td>
-	</tr>
-	<tr>
-		<td>Comments:</td>
-		<td><%= @evaluation.comment %></td>
-	</tr>
-	</tbody>
-</table>
+<div class="row stats">
+		<div class="col-md-4 stat">
+			<div class="panel panel-colored">
+			  <div class="panel-body">
+			  	<div class="col-sm-2">
+			  		<i class="fa fa-graduation-cap"></i>
+			  	</div>
+			  	<div class="col-sm-10">
+			  	<h2><%= @evaluation.focus_letter %></h2>
+			  	This Week's Letter
+			  	</div>
+			 </div>
+		</div>
+		</div>
+		<div class="col-md-4 stat">
+				<div class="panel panel-colored">
+				  <div class="panel-body">
+				  	<div class="col-sm-2">
+				  		<% case @evaluation.behavior 
+				  		when 'I need a little work'
+				  			@icon = '<i class="fa fa-meh-o"></i>'
+				  		when 'Good'
+				  			@icon = '<i class="fa fa-smile-o"></i>'
+				  		when 'Excellent'
+				  			@icon = '<i class="fa fa-star-o"></i>'
+				  		end		
+				  			%>
+				  		<%= raw @icon %>
+				  	</div>
+				  	<div class="col-sm-10">
+				  		
+				  		<h2 style="font-size:33px"><%= @evaluation.behavior %></h2>
+				  	Behaviour
+				  	</div>
+				  	
+				 </div>
+			</div>
+		</div>
+
+</div>
+<div class="panel">
+	<div class="panel-heading">
+		<h2>Evaluation for <%= "#{@evaluation.student.try(:first_name)}" %></h2>
+	</div>
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>Date</td>
+					<td><%= @evaluation.created_at %></td>
+				</tr>
+			<tr>
+				<td>This week's Letter:</td>
+				<td><%= @evaluation.focus_letter %></td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Behaviour:</td>
+				<td><%= @evaluation.behavior %></td>
+			</tr>
+			<tr>
+				<td>Comments:</td>
+				<td><%= @evaluation.comment %></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+

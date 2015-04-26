@@ -23,8 +23,8 @@ label{font-weight:400;}
 
 .dashboard ul{list-style:none;padding:0;margin:0;}
 .dashboard li{background:#02DBE5;padding:20px;margin-bottom:1px;overflow:auto;font-size:14px;}
-.dashboard li .fa{color:#fff;}
-.dashboard li a:visited, .dashboard li a:hover, .dashboard li a:link{color:#fff;}
+.dashboard li .fa{color:#fff;font-size:17px;}
+.dashboard li a:visited, .dashboard li a:hover, .dashboard li a:link{color:#fff;font-size:15px;}
 .main{margin-top:120px;margin-bottom:30px;}
 .error{color: #a94442;background-color: #f2dede;border-color: #ebccd1;}
 .divider{border:1px dotted #ccc;margin-top:30px;margin-bottom:30px;}

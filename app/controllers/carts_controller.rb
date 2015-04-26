@@ -39,7 +39,13 @@ class CartsController < ApplicationController
 			if item.product.type_id = '1'
 				@credits.push item.quantity.to_i
 			end
-			@item_total = item.quantity.to_i * item.product.try(:cost).to_i
+			if item.quantity.to_i < 4
+				@cost = '12'
+			else
+				@cost = '10'
+			end
+
+			@item_total = item.quantity.to_i * @cost.to_i
 			@total.push @item_total
 		end
 

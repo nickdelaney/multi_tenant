@@ -22,7 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
                         if @user.save
                               @user.customer_profile_id = customer_profile_id
                               @user.save
-                              redirect_to admin_users_path
+                              redirect_to new_user_session_path
                         else
                              flash[:notice] = "Profile Creation Failed"
                              render 'new' 

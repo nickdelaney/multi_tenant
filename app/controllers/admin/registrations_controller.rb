@@ -1,5 +1,4 @@
 class Admin::RegistrationsController < Devise::RegistrationsController
-      before_action :check_role
 	helper_method :us_states
       prepend_before_filter :require_no_authentication, :only => []
       prepend_before_filter :authenticate_scope!

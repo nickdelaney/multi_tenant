@@ -1,65 +1,86 @@
 <%= form_for @user, url: registrations_create_path(@user) do |f| %>
   <%= devise_error_messages! %>
   <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-
+    <%= f.label :email, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :password %>
+    <%= f.label :password, class: 'col-sm-2 label-control' %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
+    <div class="col-sm-10">
     <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    <%= f.label :password_confirmation, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+    </div>
   </div>
 
 
 
   <div class="form-group">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
     <%= f.text_field :first_name, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name, class: 'col-sm-2' %>
+    <div class="col-sm-10">
     <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
   </div>
 
 
   <div class="form-group">
-    <%= f.label :address_1 %><br />
+    <%= f.label :address_1, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
     <%= f.text_field :address_1, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :address_2 %><br />
+    <%= f.label :address_2, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
     <%= f.text_field :address_2, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :city %><br />
+    <%= f.label :city, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
     <%= f.text_field :city, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :state %><br />
+    <%= f.label :state, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
     <%= f.select(:state, options_for_select(us_states),{}, {:class => 'form-control'} )%>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :zip %><br />
+    <%= f.label :zip, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
     <%= f.text_field :zip, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :phone %><br />
+    <%= f.label :phone, class: 'col-sm-2 label-control' %>
+    <div class="col-sm-10">
     <%= f.text_field :phone, class: 'form-control' %>
+    </div>
   </div>
 
 
